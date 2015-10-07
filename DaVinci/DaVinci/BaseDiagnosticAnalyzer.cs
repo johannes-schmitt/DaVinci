@@ -9,7 +9,7 @@ namespace DaVinci
     {
         asdfasdf
         as
-
+            asdfsd
         protected abstract string DiagnosticId { get; }
         protected abstract LocalizableString Title { get; }
         protected abstract LocalizableString MessageFormat { get; }
