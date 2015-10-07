@@ -31,19 +31,4 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://johannes-schmitt.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = DaVinci\\DaVinci.Vsix\\DaVinci.Vsix.csproj
-		SccProjectName1 = DaVinci/DaVinci.Vsix
-		SccLocalPath1 = DaVinci\\DaVinci.Vsix
-		SccProjectUniqueName2 = DaVinci\\DaVinci\\DaVinci.csproj
-		SccProjectName2 = DaVinci/DaVinci
-		SccLocalPath2 = DaVinci\\DaVinci
-		SccProjectUniqueName3 = DaVinci\\DaVinci.UnitTest\\DaVinci.UnitTest.csproj
-		SccProjectName3 = DaVinci/DaVinci.UnitTest
-		SccLocalPath3 = DaVinci\\DaVinci.UnitTest
-	EndGlobalSection
 EndGlobal
