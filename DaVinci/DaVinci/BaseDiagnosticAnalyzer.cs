@@ -7,6 +7,9 @@ namespace DaVinci
 {
     public abstract class BaseDiagnosticAnalyzer : DiagnosticAnalyzer
     {
+        asdfasdf
+        as
+
         protected abstract string DiagnosticId { get; }
         protected abstract LocalizableString Title { get; }
         protected abstract LocalizableString MessageFormat { get; }
