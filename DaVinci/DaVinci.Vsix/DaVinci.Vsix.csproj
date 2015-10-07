@@ -49,6 +49,7 @@
     <WarningLevel>4</WarningLevel>
     <DeployExtension Condition="'$(APPVEYOR)' != ''">False</DeployExtension>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup>
     <StartAction>Program</StartAction>
