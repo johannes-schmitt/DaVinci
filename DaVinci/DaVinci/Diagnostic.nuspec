@@ -2,13 +2,11 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>DaVinci</id>
-    <version>1.0.0.0</version>
+    <version>0.1.0-alpha</version>
     <title>DaVinci</title>
-    <authors>DaVinci</authors>
-    <owners>DaVinci</owners>
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <authors>Johannes Schmitt</authors>
+    <owners>Johannes Schmitt</owners>
+    <projectUrl>https://github.com/johannesschmitt/DaVinci</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>DaVinci</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>

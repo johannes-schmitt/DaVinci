@@ -39,6 +39,9 @@
     <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="BaseDiagnosticAnalyzer.cs" />
     <Compile Include="ObjectCalisthenics\KeepAllEntitiesSmallAnalyzer.cs" />
     <Compile Include="ObjectCalisthenics\NoClassesWithMoreThanTwoFieldsAnalyzer.cs" />
