@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="DaVinci.Vsix.Johannes Schmitt;.bb61ddd0-ee00-4a39-8852-a934d227f8fe" Version="0.1" Language="en-US" Publisher="Johannes Schmitt"/>
+    <DisplayName>DaVinci</DisplayName>
+    <Description xml:space="preserve">The goal of DaVinci is to help you improve your C# code. It shows you possible design flaws and gives you hints how to make your code more maintainable. Use DaVinci whenever you do a coding dojo or a code review.
+Right now DaVinci is in a very early state (Pre-Alpha).</Description>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Version="[14.0,]" Id="Microsoft.VisualStudio.Pro" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="DaVinci" Path="|DaVinci|"/>
+    <Asset Type="Microsoft.VisualStudio.Analyzer" d:Source="Project" d:ProjectName="DaVinci" Path="|DaVinci|"/>
+  </Assets>
+</PackageManifest>
