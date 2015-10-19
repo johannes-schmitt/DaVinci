@@ -203,5 +203,178 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             VerifyCSharpDiagnostic(Code, expected);
         }
+
+        [TestMethod]
+        public void MethodContainsControlStructureInTryStatement_DiagnosticIsReported()
+        {
+            const string Code = @"
+            class SomeClass
+            {
+                public void Format()
+                {
+                    try
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            System.Console.WriteLine();
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        System.Console.WriteLine();
+                    }
+                }
+            }";
+
+            var expected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.1",
+                Message = "\'Format\' contains more than 1 level of indentation.",
+                Severity = DiagnosticSeverity.Warning,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
+            };
+
+            VerifyCSharpDiagnostic(Code, expected);
+        }
+
+        [TestMethod]
+        public void MethodContainsControlStructureInCatchStatement_DiagnosticIsReported()
+        {
+            const string Code = @"
+            class SomeClass
+            {
+                public void Format()
+                {
+                    try
+                    {
+                        System.Console.WriteLine();
+                    }
+                    catch (Exception)
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            System.Console.WriteLine();
+                        }
+                    }
+                }
+            }";
+
+            var expected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.1",
+                Message = "\'Format\' contains more than 1 level of indentation.",
+                Severity = DiagnosticSeverity.Warning,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
+            };
+
+            VerifyCSharpDiagnostic(Code, expected);
+        }
+
+        [TestMethod]
+        public void MethodContainsControlStructureInSecondCatchStatement_DiagnosticIsReported()
+        {
+            const string Code = @"
+            class SomeClass
+            {
+                public void Format()
+                {
+                    try
+                    {
+                        System.Console.WriteLine();
+                    }
+                    catch (ArgumentException)
+                    {
+                        System.Console.WriteLine();
+                    }
+                    catch (Exception)
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            System.Console.WriteLine();
+                        }
+                    }
+                }
+            }";
+
+            var expected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.1",
+                Message = "\'Format\' contains more than 1 level of indentation.",
+                Severity = DiagnosticSeverity.Warning,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
+            };
+
+            VerifyCSharpDiagnostic(Code, expected);
+        }
+
+        [TestMethod]
+        public void MethodContainsControlStructureInFinallyStatement_DiagnosticIsReported()
+        {
+            const string Code = @"
+            class SomeClass
+            {
+                public void Format()
+                {
+                    try
+                    {
+                        System.Console.WriteLine();
+                    }
+                    catch (Exception)
+                    {
+                        System.Console.WriteLine();
+                    }
+                    finally
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            System.Console.WriteLine();
+                        }
+                    }
+                }
+            }";
+
+            var expected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.1",
+                Message = "\'Format\' contains more than 1 level of indentation.",
+                Severity = DiagnosticSeverity.Warning,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
+            };
+
+            VerifyCSharpDiagnostic(Code, expected);
+        }
+
+        [TestMethod]
+        public void MethodContainsTryStatementInControlStructure_DiagnosticIsReported()
+        {
+            const string Code = @"
+            class SomeClass
+            {
+                public void Format()
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        try
+                        {
+                            System.Console.WriteLine();
+                        }
+                        catch (Exception)
+                        {
+                            System.Console.WriteLine();
+                        }
+                    }
+                }
+            }";
+
+            var expected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.1",
+                Message = "\'Format\' contains more than 1 level of indentation.",
+                Severity = DiagnosticSeverity.Warning,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
+            };
+
+            VerifyCSharpDiagnostic(Code, expected);
+        }
     }
 }

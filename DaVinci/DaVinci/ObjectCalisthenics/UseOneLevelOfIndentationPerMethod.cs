@@ -86,20 +86,26 @@ namespace DaVinci.ObjectCalisthenics
                 {
                     yield return blockSyntax;
                 }
-            }
-        }
 
-        public void Format()
-        {
-            if (new Random().Next(1) == 1)
-            {
-                System.Console.WriteLine(string.Empty);
-            }
-            else
-            {
-                for (int i = 0; i < 10; i++)
+                blockSyntax = (statementSyntax as TryStatementSyntax)?.Block;
+                if (blockSyntax != null)
                 {
-                    System.Console.WriteLine();
+                    yield return blockSyntax;
+                }
+
+                foreach (var tryStatement in (statementSyntax as TryStatementSyntax)?.Catches ?? new SyntaxList<CatchClauseSyntax>())
+                {
+                    blockSyntax = tryStatement.Block;
+                    if (blockSyntax != null)
+                    {
+                        yield return blockSyntax;
+                    }
+                }
+
+                blockSyntax = (statementSyntax as TryStatementSyntax)?.Finally?.Block;
+                if (blockSyntax != null)
+                {
+                    yield return blockSyntax;
                 }
             }
         }
@@ -125,7 +131,8 @@ namespace DaVinci.ObjectCalisthenics
                                  typeof(ForEachStatementSyntax),
                                  typeof(WhileStatementSyntax),
                                  typeof(DoStatementSyntax),
-                                 typeof(IfStatementSyntax)
+                                 typeof(IfStatementSyntax),
+                                 typeof(TryStatementSyntax)
                              };
 
             return controlStructures.Contains(type);
