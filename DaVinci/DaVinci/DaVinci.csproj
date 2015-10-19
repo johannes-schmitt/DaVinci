@@ -46,6 +46,7 @@
     <Compile Include="ObjectCalisthenics\KeepAllEntitiesSmallAnalyzer.cs" />
     <Compile Include="ObjectCalisthenics\NoClassesWithMoreThanTwoFieldsAnalyzer.cs" />
     <Compile Include="ObjectCalisthenics\NoPropertiesAnalyzer.cs" />
+    <Compile Include="ObjectCalisthenics\UseOneLevelOfIndentationPerMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
