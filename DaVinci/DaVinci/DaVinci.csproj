@@ -125,7 +125,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"$(ProjectDir)\tools\NuGet.exe" pack $(MSBuildProjectFullPath) -NoPackageAnalysis -OutputDirectory .</PostBuildEvent>
+    <PostBuildEvent>"$(ProjectDir)tools\NuGet.exe" pack $(MSBuildProjectFullPath) -NoPackageAnalysis -OutputDirectory .</PostBuildEvent>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
