@@ -43,6 +43,7 @@
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="BaseDiagnosticAnalyzer.cs" />
+    <Compile Include="Extensions\AnalysisContextExtensions.cs" />
     <Compile Include="ObjectCalisthenics\KeepAllEntitiesSmallAnalyzer.cs" />
     <Compile Include="ObjectCalisthenics\NoClassesWithMoreThanTwoFieldsAnalyzer.cs" />
     <Compile Include="ObjectCalisthenics\NoPropertiesAnalyzer.cs" />

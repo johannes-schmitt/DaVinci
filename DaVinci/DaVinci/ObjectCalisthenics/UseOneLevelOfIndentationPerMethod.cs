@@ -5,6 +5,8 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
+using DaVinci.Extensions;
+
 namespace DaVinci.ObjectCalisthenics
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
@@ -19,17 +21,11 @@ namespace DaVinci.ObjectCalisthenics
 
         public override void Initialize(AnalysisContext context)
         {
-            context.RegisterCodeBlockAction(AnalyzeCodeBlock);
+            context.RegisterCodeBlockAction<MethodDeclarationSyntax>(AnalyzeMethodCodeBlock);
         }
 
-        private void AnalyzeCodeBlock(CodeBlockAnalysisContext context)
+        private void AnalyzeMethodCodeBlock(CodeBlockAnalysisContext context, MethodDeclarationSyntax methodDeclarationSyntax)
         {
-            var methodDeclarationSyntax = context.CodeBlock as MethodDeclarationSyntax;
-            if (methodDeclarationSyntax == null)
-            {
-                return;
-            }
-
             if (HasMultipleIndentations(methodDeclarationSyntax.Body.Statements))
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, methodDeclarationSyntax.Identifier.GetLocation(), methodDeclarationSyntax.Identifier.Text));
