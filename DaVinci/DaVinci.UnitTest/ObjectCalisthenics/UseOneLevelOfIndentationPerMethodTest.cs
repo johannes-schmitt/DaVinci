@@ -23,7 +23,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 private readonly int[,] grid = new int[10, 15];
 
-                public string Format()
+                public string SomeMethod()
                 {
                     string result = string.Empty;
 
@@ -42,7 +42,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.1",
-                Message = "\'Format\' contains more than 1 level of indentation.",
+                Message = "\'SomeMethod\' contains more than 1 level of indentation.",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 6, 31) }
             };
@@ -59,7 +59,7 @@ namespace DaVinci.Test.ObjectCalisthenics
                 private readonly string[] rows = new string[10];
                 private readonly string[] colums = new string[10];
 
-                public void Format()
+                public void SomeMethod()
                 {
                     foreach (var row in this.rows)
                     {
@@ -74,7 +74,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.1",
-                Message = "\'Format\' contains more than 1 level of indentation.",
+                Message = "\'SomeMethod\' contains more than 1 level of indentation.",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 7, 29) }
             };
@@ -88,7 +88,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             const string Code = @"
             class SomeClass
             {
-                public void Format()
+                public void SomeMethod()
                 {
                     while (true)
                     {
@@ -103,7 +103,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.1",
-                Message = "\'Format\' contains more than 1 level of indentation.",
+                Message = "\'SomeMethod\' contains more than 1 level of indentation.",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
             };
@@ -117,7 +117,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             const string Code = @"
             class SomeClass
             {
-                public void Format()
+                public void SomeMethod()
                 {
                     do
                     {
@@ -134,7 +134,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.1",
-                Message = "\'Format\' contains more than 1 level of indentation.",
+                Message = "\'SomeMethod\' contains more than 1 level of indentation.",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
             };
@@ -148,7 +148,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             const string Code = @"
             class SomeClass
             {
-                public void Format()
+                public void SomeMethod()
                 {
                     if (true)
                     {
@@ -163,7 +163,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.1",
-                Message = "\'Format\' contains more than 1 level of indentation.",
+                Message = "\'SomeMethod\' contains more than 1 level of indentation.",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
             };
@@ -177,7 +177,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             const string Code = @"
             class SomeClass
             {
-                public void Format()
+                public void SomeMethod()
                 {
                     if (new Random().Next(1) == 1)
                     {
@@ -196,7 +196,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.1",
-                Message = "\'Format\' contains more than 1 level of indentation.",
+                Message = "\'SomeMethod\' contains more than 1 level of indentation.",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
             };
@@ -210,7 +210,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             const string Code = @"
             class SomeClass
             {
-                public void Format()
+                public void SomeMethod()
                 {
                     try
                     {
@@ -229,7 +229,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.1",
-                Message = "\'Format\' contains more than 1 level of indentation.",
+                Message = "\'SomeMethod\' contains more than 1 level of indentation.",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
             };
@@ -243,7 +243,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             const string Code = @"
             class SomeClass
             {
-                public void Format()
+                public void SomeMethod()
                 {
                     try
                     {
@@ -262,7 +262,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.1",
-                Message = "\'Format\' contains more than 1 level of indentation.",
+                Message = "\'SomeMethod\' contains more than 1 level of indentation.",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
             };
@@ -276,7 +276,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             const string Code = @"
             class SomeClass
             {
-                public void Format()
+                public void SomeMethod()
                 {
                     try
                     {
@@ -299,7 +299,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.1",
-                Message = "\'Format\' contains more than 1 level of indentation.",
+                Message = "\'SomeMethod\' contains more than 1 level of indentation.",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
             };
@@ -313,7 +313,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             const string Code = @"
             class SomeClass
             {
-                public void Format()
+                public void SomeMethod()
                 {
                     try
                     {
@@ -336,7 +336,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.1",
-                Message = "\'Format\' contains more than 1 level of indentation.",
+                Message = "\'SomeMethod\' contains more than 1 level of indentation.",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
             };
@@ -350,7 +350,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             const string Code = @"
             class SomeClass
             {
-                public void Format()
+                public void SomeMethod()
                 {
                     for (int i = 0; i < 10; i++)
                     {
@@ -369,7 +369,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.1",
-                Message = "\'Format\' contains more than 1 level of indentation.",
+                Message = "\'SomeMethod\' contains more than 1 level of indentation.",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 29) }
             };
