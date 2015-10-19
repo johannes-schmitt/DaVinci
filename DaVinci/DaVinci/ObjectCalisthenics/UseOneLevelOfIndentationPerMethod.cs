@@ -25,20 +25,22 @@ namespace DaVinci.ObjectCalisthenics
         private void AnalyzeCodeBlock(CodeBlockAnalysisContext context)
         {
             var methodDeclarationSyntax = context.CodeBlock as MethodDeclarationSyntax;
-            if (methodDeclarationSyntax != null)
+            if (methodDeclarationSyntax == null)
             {
-                if (HasMultipleIndentations(methodDeclarationSyntax))
-                {
-                    context.ReportDiagnostic(Diagnostic.Create(Rule, methodDeclarationSyntax.Identifier.GetLocation(), methodDeclarationSyntax.Identifier.Text));
-                }
+                return;
+            }
+
+            if (HasMultipleIndentations(methodDeclarationSyntax.Body.Statements))
+            {
+                context.ReportDiagnostic(Diagnostic.Create(Rule, methodDeclarationSyntax.Identifier.GetLocation(), methodDeclarationSyntax.Identifier.Text));
             }
         }
 
-        private bool HasMultipleIndentations(MethodDeclarationSyntax methodDeclarationSyntax)
+        private bool HasMultipleIndentations(SyntaxList<StatementSyntax> statements)
         {
-            foreach (var blockSyntax in GetCandidates(methodDeclarationSyntax.Body.Statements))
+            foreach (var block in GetBlocksWhichShouldNotContainControlStructures(statements))
             {
-                if (ContainsControlStructure(blockSyntax))
+                if (ContainsControlStructure(block))
                 {
                     return true;
                 }
@@ -47,72 +49,72 @@ namespace DaVinci.ObjectCalisthenics
             return false;
         }
 
-        private IEnumerable<BlockSyntax> GetCandidates(SyntaxList<StatementSyntax> statements)
+        private IEnumerable<BlockSyntax> GetBlocksWhichShouldNotContainControlStructures(SyntaxList<StatementSyntax> statements)
         {
             foreach (var statementSyntax in statements)
             {
-                var blockSyntax = (statementSyntax as ForStatementSyntax)?.Statement as BlockSyntax;
-                if (blockSyntax != null)
+                var block = (statementSyntax as ForStatementSyntax)?.Statement as BlockSyntax;
+                if (block != null)
                 {
-                    yield return blockSyntax;
+                    yield return block;
                 }
 
-                blockSyntax = (statementSyntax as ForEachStatementSyntax)?.Statement as BlockSyntax;
-                if (blockSyntax != null)
+                block = (statementSyntax as ForEachStatementSyntax)?.Statement as BlockSyntax;
+                if (block != null)
                 {
-                    yield return blockSyntax;
+                    yield return block;
                 }
 
-                blockSyntax = (statementSyntax as WhileStatementSyntax)?.Statement as BlockSyntax;
-                if (blockSyntax != null)
+                block = (statementSyntax as WhileStatementSyntax)?.Statement as BlockSyntax;
+                if (block != null)
                 {
-                    yield return blockSyntax;
+                    yield return block;
                 }
 
-                blockSyntax = (statementSyntax as DoStatementSyntax)?.Statement as BlockSyntax;
-                if (blockSyntax != null)
+                block = (statementSyntax as DoStatementSyntax)?.Statement as BlockSyntax;
+                if (block != null)
                 {
-                    yield return blockSyntax;
+                    yield return block;
                 }
 
-                blockSyntax = (statementSyntax as IfStatementSyntax)?.Statement as BlockSyntax;
-                if (blockSyntax != null)
+                block = (statementSyntax as IfStatementSyntax)?.Statement as BlockSyntax;
+                if (block != null)
                 {
-                    yield return blockSyntax;
+                    yield return block;
                 }
 
-                blockSyntax = (statementSyntax as IfStatementSyntax)?.Else?.Statement as BlockSyntax;
-                if (blockSyntax != null)
+                block = (statementSyntax as IfStatementSyntax)?.Else?.Statement as BlockSyntax;
+                if (block != null)
                 {
-                    yield return blockSyntax;
+                    yield return block;
                 }
 
-                blockSyntax = (statementSyntax as TryStatementSyntax)?.Block;
-                if (blockSyntax != null)
+                block = (statementSyntax as TryStatementSyntax)?.Block;
+                if (block != null)
                 {
-                    yield return blockSyntax;
+                    yield return block;
                 }
 
                 foreach (var tryStatement in (statementSyntax as TryStatementSyntax)?.Catches ?? new SyntaxList<CatchClauseSyntax>())
                 {
-                    blockSyntax = tryStatement.Block;
-                    if (blockSyntax != null)
+                    block = tryStatement.Block;
+                    if (block != null)
                     {
-                        yield return blockSyntax;
+                        yield return block;
                     }
                 }
 
-                blockSyntax = (statementSyntax as TryStatementSyntax)?.Finally?.Block;
-                if (blockSyntax != null)
+                block = (statementSyntax as TryStatementSyntax)?.Finally?.Block;
+                if (block != null)
                 {
-                    yield return blockSyntax;
+                    yield return block;
                 }
             }
         }
 
-        private bool ContainsControlStructure(BlockSyntax body)
+        private bool ContainsControlStructure(BlockSyntax block)
         {
-            foreach (var statementSyntax in body.Statements)
+            foreach (var statementSyntax in block.Statements)
             {
                 if (IsControlStructure(statementSyntax))
                 {
