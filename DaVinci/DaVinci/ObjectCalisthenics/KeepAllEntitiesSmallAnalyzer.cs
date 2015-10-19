@@ -27,12 +27,17 @@ namespace DaVinci.ObjectCalisthenics
             var classes = root.DescendantNodesAndSelf().OfType<ClassDeclarationSyntax>();
             foreach (var @class in classes)
             {
-                var classSpan = @class.SyntaxTree.GetMappedLineSpan(@class.Span);
-                var numberOfLines = classSpan.EndLinePosition.Line - classSpan.StartLinePosition.Line + 1;
-                if (numberOfLines > 50)
-                {
-                    context.ReportDiagnostic(Diagnostic.Create(Rule, @class.Identifier.GetLocation(), @class.Identifier.Text, numberOfLines));
-                }
+                AnalyzeClass(context, @class);
+            }
+        }
+
+        private void AnalyzeClass(SyntaxTreeAnalysisContext context, ClassDeclarationSyntax @class)
+        {
+            var classSpan = @class.SyntaxTree.GetMappedLineSpan(@class.Span);
+            var numberOfLines = classSpan.EndLinePosition.Line - classSpan.StartLinePosition.Line + 1;
+            if (numberOfLines > 50)
+            {
+                context.ReportDiagnostic(Diagnostic.Create(Rule, @class.Identifier.GetLocation(), @class.Identifier.Text, numberOfLines));
             }
         }
     }
