@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -28,40 +27,81 @@ namespace DaVinci.ObjectCalisthenics
             var methodDeclarationSyntax = context.CodeBlock as MethodDeclarationSyntax;
             if (methodDeclarationSyntax != null)
             {
-                if (ContainsNestedControlFlows(methodDeclarationSyntax))
+                if (HasMultipleIndentations(methodDeclarationSyntax))
                 {
                     context.ReportDiagnostic(Diagnostic.Create(Rule, methodDeclarationSyntax.Identifier.GetLocation(), methodDeclarationSyntax.Identifier.Text));
                 }
             }
         }
 
-        private bool ContainsNestedControlFlows(MethodDeclarationSyntax methodDeclarationSyntax)
+        private bool HasMultipleIndentations(MethodDeclarationSyntax methodDeclarationSyntax)
         {
-            foreach (var statement in methodDeclarationSyntax.Body.Statements.OfType<ForStatementSyntax>())
+            foreach (var blockSyntax in GetCandidates(methodDeclarationSyntax.Body.Statements))
             {
-                if (ContainsControlStructure((BlockSyntax)statement.Statement))
-                {
-                    return true;
-                }
-            }
-
-            foreach (var statement in methodDeclarationSyntax.Body.Statements.OfType<ForEachStatementSyntax>())
-            {
-                if (ContainsControlStructure((BlockSyntax)statement.Statement))
-                {
-                    return true;
-                }
-            }
-
-            foreach (var statement in methodDeclarationSyntax.Body.Statements.OfType<WhileStatementSyntax>())
-            {
-                if (ContainsControlStructure((BlockSyntax)statement.Statement))
+                if (ContainsControlStructure(blockSyntax))
                 {
                     return true;
                 }
             }
 
             return false;
+        }
+
+        private IEnumerable<BlockSyntax> GetCandidates(SyntaxList<StatementSyntax> statements)
+        {
+            foreach (var statementSyntax in statements)
+            {
+                var blockSyntax = (statementSyntax as ForStatementSyntax)?.Statement as BlockSyntax;
+                if (blockSyntax != null)
+                {
+                    yield return blockSyntax;
+                }
+
+                blockSyntax = (statementSyntax as ForEachStatementSyntax)?.Statement as BlockSyntax;
+                if (blockSyntax != null)
+                {
+                    yield return blockSyntax;
+                }
+
+                blockSyntax = (statementSyntax as WhileStatementSyntax)?.Statement as BlockSyntax;
+                if (blockSyntax != null)
+                {
+                    yield return blockSyntax;
+                }
+
+                blockSyntax = (statementSyntax as DoStatementSyntax)?.Statement as BlockSyntax;
+                if (blockSyntax != null)
+                {
+                    yield return blockSyntax;
+                }
+
+                blockSyntax = (statementSyntax as IfStatementSyntax)?.Statement as BlockSyntax;
+                if (blockSyntax != null)
+                {
+                    yield return blockSyntax;
+                }
+
+                blockSyntax = (statementSyntax as IfStatementSyntax)?.Else?.Statement as BlockSyntax;
+                if (blockSyntax != null)
+                {
+                    yield return blockSyntax;
+                }
+            }
+        }
+
+        public void Format()
+        {
+            if (new Random().Next(1) == 1)
+            {
+                System.Console.WriteLine(string.Empty);
+            }
+            else
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    System.Console.WriteLine();
+                }
+            }
         }
 
         private bool ContainsControlStructure(BlockSyntax body)
@@ -83,7 +123,9 @@ namespace DaVinci.ObjectCalisthenics
                              {
                                  typeof(ForStatementSyntax),
                                  typeof(ForEachStatementSyntax),
-                                 typeof(WhileStatementSyntax)
+                                 typeof(WhileStatementSyntax),
+                                 typeof(DoStatementSyntax),
+                                 typeof(IfStatementSyntax)
                              };
 
             return controlStructures.Contains(type);
