@@ -2,15 +2,15 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>DaVinci</id>
-    <version>0.1.0-alpha</version>
+    <version>$version$-alpha</version>
     <title>DaVinci</title>
-    <authors>Johannes Schmitt</authors>
-    <owners>Johannes Schmitt</owners>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
     <projectUrl>https://github.com/johannesschmitt/DaVinci</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>DaVinci</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>Copyright</copyright>
+    <description>$description$</description>
+    <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
+    <copyright>2015 $author$</copyright>
     <tags>DaVinci, analyzers</tags>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System" targetFramework="" />
