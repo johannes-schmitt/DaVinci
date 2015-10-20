@@ -29,7 +29,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.8",
-                Message = "\'SomeClass\' contains more than two fields (3).",
+                Message = "\'SomeClass\' contains more than 2 fields (3).",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 19) }
             };
@@ -52,7 +52,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             var expected = new DiagnosticResult
             {
                 Id = "DaVinci.OC.8",
-                Message = "\'SomeClass\' contains more than two fields (4).",
+                Message = "\'SomeClass\' contains more than 2 fields (4).",
                 Severity = DiagnosticSeverity.Warning,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 19) }
             };

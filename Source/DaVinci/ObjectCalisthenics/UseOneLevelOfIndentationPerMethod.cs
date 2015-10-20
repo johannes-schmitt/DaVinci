@@ -34,15 +34,7 @@ namespace DaVinci.ObjectCalisthenics
 
         private bool HasMultipleIndentations(BlockSyntax block)
         {
-            foreach (var subBlock in block.GetSubBlocks())
-            {
-                if (subBlock.GetSubBlocks().Any())
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return block.GetSubBlocks().Any(subBlock => subBlock.GetSubBlocks().Any());
         }
     }
 }

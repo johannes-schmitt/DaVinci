@@ -18,10 +18,10 @@ namespace DaVinci.ObjectCalisthenics
 
         public override void Initialize(AnalysisContext context)
         {
-            context.RegisterCodeBlockAction(AnalyzeMethodCodeBlock);
+            context.RegisterCodeBlockAction(AnalyzeCodeBlock);
         }
 
-        private void AnalyzeMethodCodeBlock(CodeBlockAnalysisContext context)
+        private void AnalyzeCodeBlock(CodeBlockAnalysisContext context)
         {
             foreach (var elseClause in context.CodeBlock.DescendantNodes().OfType<ElseClauseSyntax>())
             {
