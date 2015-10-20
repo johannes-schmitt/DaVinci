@@ -26,19 +26,19 @@ namespace DaVinci.ObjectCalisthenics
         private async void AnalyzeSyntaxTree(SyntaxTreeAnalysisContext context)
         {
             var root = await context.Tree.GetRootAsync();
-            var classes = root.DescendantNodesAndSelf().OfType<ClassDeclarationSyntax>();
-            foreach (var @class in classes)
+            var typeDeclarations = root.DescendantNodesAndSelf().OfType<TypeDeclarationSyntax>();
+            foreach (var typeDeclaration in typeDeclarations)
             {
-                AnalyzeClass(context, @class);
+                AnalyzeType(context, typeDeclaration);
             }
         }
 
-        private void AnalyzeClass(SyntaxTreeAnalysisContext context, ClassDeclarationSyntax @class)
+        private void AnalyzeType(SyntaxTreeAnalysisContext context, TypeDeclarationSyntax typeDeclaration)
         {
-            var numberOfFields = @class.Members.Count(member => member is FieldDeclarationSyntax);
+            var numberOfFields = typeDeclaration.Members.Count(member => member is FieldDeclarationSyntax);
             if (numberOfFields > MaximumNumberOfFields)
             {
-                context.ReportDiagnostic(Diagnostic.Create(Rule, @class.Identifier.GetLocation(), @class.Identifier.Text, numberOfFields));
+                context.ReportDiagnostic(Diagnostic.Create(Rule, typeDeclaration.Identifier.GetLocation(), typeDeclaration.Identifier.Text, numberOfFields));
             }
         }
     }

@@ -72,5 +72,63 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             VerifyCSharpDiagnostic(Code);
         }
+
+        [TestMethod]
+        public void StructHasThreeFields_OneDiagnosticReportedShowingThreeFields()
+        {
+            const string Code = @"
+            struct SomeStruct
+            {
+                private int firstField;
+                private int secondField;
+                private int thirdField;
+            }";
+
+            var expected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.8",
+                Message = "\'SomeStruct\' contains more than 2 fields (3).",
+                Severity = DiagnosticSeverity.Warning,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 20) }
+            };
+
+            VerifyCSharpDiagnostic(Code, expected);
+        }
+
+        [TestMethod]
+        public void StructHasFourFields_OneDiagnosticReportedShowingFourFields()
+        {
+            const string Code = @"
+            struct SomeStruct
+            {
+                private int firstField;
+                private int secondField;
+                private int thirdField;
+                private int fourthField;
+            }";
+
+            var expected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.8",
+                Message = "\'SomeStruct\' contains more than 2 fields (4).",
+                Severity = DiagnosticSeverity.Warning,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 20) }
+            };
+
+            VerifyCSharpDiagnostic(Code, expected);
+        }
+
+        [TestMethod]
+        public void StructHasTwoFields_NoDiagnosticReported()
+        {
+            const string Code = @"
+            class SomeStruct
+            {
+                private int firstField;
+                private int secondField;
+            }";
+
+            VerifyCSharpDiagnostic(Code);
+        }
     }
 }
