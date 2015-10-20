@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaVinci", "DaVinci\DaVinci\DaVinci.csproj", "{EA78A094-3C9D-4B57-B5D9-8202D359EBF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaVinci", "Source\DaVinci\DaVinci.csproj", "{EA78A094-3C9D-4B57-B5D9-8202D359EBF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaVinci.Vsix", "DaVinci\DaVinci.Vsix\DaVinci.Vsix.csproj", "{E2FFFDB3-724A-47F9-BE84-A9BA1B363426}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaVinci.Vsix", "Source\DaVinci.Vsix\DaVinci.Vsix.csproj", "{E2FFFDB3-724A-47F9-BE84-A9BA1B363426}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaVinci.UnitTest", "DaVinci\DaVinci.UnitTest\DaVinci.UnitTest.csproj", "{390077FB-A0F0-4158-BBBE-A53C57357C80}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaVinci.UnitTest", "Source\DaVinci.UnitTest\DaVinci.UnitTest.csproj", "{390077FB-A0F0-4158-BBBE-A53C57357C80}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BAE105C3-2AFD-4C29-AF98-0AA0ED506D4C}"
 	ProjectSection(SolutionItems) = preProject
