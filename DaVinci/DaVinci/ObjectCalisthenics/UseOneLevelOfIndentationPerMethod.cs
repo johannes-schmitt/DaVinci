@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Linq;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -26,114 +25,23 @@ namespace DaVinci.ObjectCalisthenics
 
         private void AnalyzeMethodCodeBlock(CodeBlockAnalysisContext context, MethodDeclarationSyntax methodDeclarationSyntax)
         {
-            if (HasMultipleIndentations(methodDeclarationSyntax.Body.Statements))
+            if (HasMultipleIndentations(methodDeclarationSyntax.Body))
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, methodDeclarationSyntax.Identifier.GetLocation(), methodDeclarationSyntax.Identifier.Text));
             }
         }
 
-        private bool HasMultipleIndentations(SyntaxList<StatementSyntax> statements)
+        private bool HasMultipleIndentations(BlockSyntax block)
         {
-            foreach (var block in GetBlocksWhichShouldNotContainControlStructures(statements))
+            foreach (var subBlock in block.GetSubBlocks())
             {
-                if (ContainsControlStructure(block))
+                if (subBlock.GetSubBlocks().Any())
                 {
                     return true;
                 }
             }
 
             return false;
-        }
-
-        private IEnumerable<BlockSyntax> GetBlocksWhichShouldNotContainControlStructures(SyntaxList<StatementSyntax> statements)
-        {
-            foreach (var statementSyntax in statements)
-            {
-                var block = (statementSyntax as ForStatementSyntax)?.Statement as BlockSyntax;
-                if (block != null)
-                {
-                    yield return block;
-                }
-
-                block = (statementSyntax as ForEachStatementSyntax)?.Statement as BlockSyntax;
-                if (block != null)
-                {
-                    yield return block;
-                }
-
-                block = (statementSyntax as WhileStatementSyntax)?.Statement as BlockSyntax;
-                if (block != null)
-                {
-                    yield return block;
-                }
-
-                block = (statementSyntax as DoStatementSyntax)?.Statement as BlockSyntax;
-                if (block != null)
-                {
-                    yield return block;
-                }
-
-                block = (statementSyntax as IfStatementSyntax)?.Statement as BlockSyntax;
-                if (block != null)
-                {
-                    yield return block;
-                }
-
-                block = (statementSyntax as IfStatementSyntax)?.Else?.Statement as BlockSyntax;
-                if (block != null)
-                {
-                    yield return block;
-                }
-
-                block = (statementSyntax as TryStatementSyntax)?.Block;
-                if (block != null)
-                {
-                    yield return block;
-                }
-
-                foreach (var tryStatement in (statementSyntax as TryStatementSyntax)?.Catches ?? new SyntaxList<CatchClauseSyntax>())
-                {
-                    block = tryStatement.Block;
-                    if (block != null)
-                    {
-                        yield return block;
-                    }
-                }
-
-                block = (statementSyntax as TryStatementSyntax)?.Finally?.Block;
-                if (block != null)
-                {
-                    yield return block;
-                }
-            }
-        }
-
-        private bool ContainsControlStructure(BlockSyntax block)
-        {
-            foreach (var statementSyntax in block.Statements)
-            {
-                if (IsControlStructure(statementSyntax))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        private bool IsControlStructure(StatementSyntax statementSyntax)
-        {
-            var type = statementSyntax.GetType();
-            var controlStructures = new List<Type>
-                             {
-                                 typeof(ForStatementSyntax),
-                                 typeof(ForEachStatementSyntax),
-                                 typeof(WhileStatementSyntax),
-                                 typeof(DoStatementSyntax),
-                                 typeof(IfStatementSyntax),
-                                 typeof(TryStatementSyntax)
-                             };
-
-            return controlStructures.Contains(type);
         }
     }
 }

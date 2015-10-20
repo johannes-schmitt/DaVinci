@@ -376,5 +376,54 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             VerifyCSharpDiagnostic(Code, expected);
         }
+
+        [TestMethod]
+        public void MethodContainsOnlyOneIndentation_NoDiagnosticIsReported()
+        {
+            const string Code = @"
+            class SomeClass
+            {
+                public void SomeMethod()
+                {
+                    for (int i = 0; i < 10; i++)
+                    {
+                        System.Console.WriteLine();
+                        System.Console.WriteLine();
+                        System.Console.WriteLine();
+                        System.Console.WriteLine();
+                        System.Console.WriteLine();
+                        System.Console.WriteLine();
+                    }
+
+                    if (true)
+                    {
+                        System.Console.WriteLine();
+                    }
+                    else
+                    {
+                        System.Console.WriteLine();
+                    }
+
+                    try
+                    {
+                        System.Console.WriteLine();
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        System.Console.WriteLine(ex);
+                    }
+                    catch
+                    {
+                        System.Console.WriteLine(ex);
+                    }
+                    finally
+                    {
+                        System.Console.WriteLine();
+                    }
+                }
+            }";
+
+            VerifyCSharpDiagnostic(Code);
+        }
     }
 }
