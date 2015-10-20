@@ -3,7 +3,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-namespace DaVinci.Extensions
+namespace DaVinci.Extensions.Microsoft.CodeAnalysis.Diagnostics
 {
     internal static class AnalysisContextExtensions
     {

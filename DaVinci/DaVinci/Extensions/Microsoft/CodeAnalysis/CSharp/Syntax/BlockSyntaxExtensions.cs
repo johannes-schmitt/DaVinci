@@ -3,7 +3,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace DaVinci.Extensions
+namespace DaVinci.Extensions.Microsoft.CodeAnalysis.CSharp.Syntax
 {
     internal static class BlockSyntaxExtensions
     {

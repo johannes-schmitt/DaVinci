@@ -4,7 +4,8 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
 
-using DaVinci.Extensions;
+using DaVinci.Extensions.Microsoft.CodeAnalysis.Diagnostics;
+using DaVinci.Extensions.Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace DaVinci.ObjectCalisthenics
 {
