@@ -2,21 +2,21 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>DaVinci</id>
-    <version>$version$-alpha</version>
+    <version>0.1.1-alpha</version>
     <title>DaVinci</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <authors>Johannes Schmitt</authors>
+    <owners>Johannes Schmitt</owners>
     <projectUrl>https://github.com/johannesschmitt/DaVinci</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
-    <copyright>2015 $author$</copyright>
+    <description>DaVinci code analyzer</description>
+    <copyright>2015 Johannes Schmitt</copyright>
     <tags>DaVinci, analyzers</tags>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System" targetFramework="" />
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="*.dll" target="tools\analyzers\" exclude="**\Microsoft.CodeAnalysis.*;**\System.Collections.Immutable.*;**\System.Reflection.Metadata.*" />
+    <file src="$targetPath$" target="tools\analyzers\" />
     <file src="tools\*.ps1" target="tools\" />
   </files>
 </package>

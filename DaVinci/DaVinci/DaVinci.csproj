@@ -121,11 +121,11 @@
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.Analyzers.1.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="tools\nuget.exe" />
+    <None Include="nuget.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>"$(ProjectDir)tools\NuGet.exe" pack $(MSBuildProjectFullPath) -NoPackageAnalysis -OutputDirectory .</PostBuildEvent>
+    <PostBuildEvent>"$(ProjectDir)NuGet.exe" pack $(ProjectDir)DaVinci.nuspec -Verbosity detailed -NoPackageAnalysis -OutputDirectory $(TargetDir) -p Configuration=$(Configuration) -p TargetPath=$(TargetPath)</PostBuildEvent>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
