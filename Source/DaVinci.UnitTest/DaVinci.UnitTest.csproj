@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="Helpers\DiagnosticResultLocation.cs" />
     <Compile Include="ObjectCalisthenics\DoNotUseTheElseKeywordTest.cs" />
+    <Compile Include="ObjectCalisthenics\FirstClassCollectionsTest.cs" />
     <Compile Include="ObjectCalisthenics\KeepAllEntitiesSmallAnalyzerTest.cs" />
     <Compile Include="ObjectCalisthenics\NoClassesWithMoreThanTwoFieldsAnalyzerTest.cs" />
     <Compile Include="ObjectCalisthenics\NoPropertiesAnalyzerTest.cs" />

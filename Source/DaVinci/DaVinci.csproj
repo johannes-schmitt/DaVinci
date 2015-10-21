@@ -54,6 +54,7 @@
     <Compile Include="Extensions\Microsoft\CodeAnalysis\Diagnostics\AnalysisContextExtensions.cs" />
     <Compile Include="Extensions\Microsoft\CodeAnalysis\SyntaxNodeExtensions.cs" />
     <Compile Include="ObjectCalisthenics\DoNotUseTheElseKeyword.cs" />
+    <Compile Include="ObjectCalisthenics\FirstClassCollections.cs" />
     <Compile Include="ObjectCalisthenics\KeepAllEntitiesSmallAnalyzer.cs" />
     <Compile Include="ObjectCalisthenics\NoClassesWithMoreThanTwoFieldsAnalyzer.cs" />
     <Compile Include="ObjectCalisthenics\NoPropertiesAnalyzer.cs" />
