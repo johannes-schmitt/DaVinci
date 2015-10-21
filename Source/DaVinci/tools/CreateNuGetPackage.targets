@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <Import Project="..\Properties\NuGetPackageInfo.targets"></Import>
-  <Target Name="DetermineTargetPathVersion" BeforeTargets="PostBuildEvent">
+  <Target Name="CreateNuGetPackage" BeforeTargets="PostBuildEvent">
     <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
       <Output TaskParameter="Assemblies" ItemName="TargetPathAssemblies"/>
     </GetAssemblyIdentity>
@@ -10,6 +10,14 @@
     </PropertyGroup>
 
     <Exec Command="$(ProjectDir)tools\NuGet.exe pack $(ProjectDir)DaVinci.nuspec -Verbosity detailed -NoPackageAnalysis -OutputDirectory $(TargetDir) -p Configuration=$(Configuration) -p TargetPath=$(TargetPath) -p Version=$(TargetPathVersion)$(VersionSuffix)"></Exec>
+  </Target>
+
+  <Target Name="CleanupNuGetPackages" AfterTargets="CoreClean">
+    <ItemGroup>
+      <FilesToDelete Include="$(TargetDir)*.nupkg"></FilesToDelete>
+    </ItemGroup>
+    <Message Condition="'@(FilesToDelete)' != ''" Text="Deleting file &quot;%(FilesToDelete.Identity)&quot;" ></Message>
+    <Delete Condition="'@(FilesToDelete)' != ''" Files="%(FilesToDelete.Identity)" />
   </Target>
 </Project>
 
