@@ -11,7 +11,7 @@ namespace DaVinci.ObjectCalisthenics
         protected override LocalizableString MessageFormat => "'{0}' is a property and should be avoided.";
         protected override LocalizableString Description => "Rule #9 of Object Calisthenics is \"No getters/setters/properties\".";
         protected override string Category => "Object Calisthenics";
-        protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Warning;
+        protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Info;
 
         public override void Initialize(AnalysisContext context)
         {

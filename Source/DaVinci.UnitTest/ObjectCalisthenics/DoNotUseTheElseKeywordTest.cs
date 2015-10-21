@@ -60,7 +60,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 Id = "DaVinci.OC.2",
                 Message = "The else keyword should be avoided.",
-                Severity = DiagnosticSeverity.Warning,
+                Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 14, 21) }
             };
             VerifyCSharpDiagnostic(Code, expected);
@@ -97,7 +97,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 Id = "DaVinci.OC.2",
                 Message = "The else keyword should be avoided.",
-                Severity = DiagnosticSeverity.Warning,
+                Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 14, 21) }
             };
 
@@ -105,7 +105,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 Id = "DaVinci.OC.2",
                 Message = "The else keyword should be avoided.",
-                Severity = DiagnosticSeverity.Warning,
+                Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 18, 21) }
             };
             VerifyCSharpDiagnostic(Code, expected, expected2);

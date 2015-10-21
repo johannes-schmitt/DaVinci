@@ -17,7 +17,7 @@ namespace DaVinci.ObjectCalisthenics
         protected override LocalizableString MessageFormat => "'{0}' contains more than 1 level of indentation.";
         protected override LocalizableString Description => "Rule #1 of Object Calisthenics is \"Use one level of indentation per method\".";
         protected override string Category => "Object Calisthenics";
-        protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Warning;
+        protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Info;
 
         public override void Initialize(AnalysisContext context)
         {

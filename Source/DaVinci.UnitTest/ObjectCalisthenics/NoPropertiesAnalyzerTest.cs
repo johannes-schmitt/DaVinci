@@ -28,7 +28,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 Id = "DaVinci.OC.9",
                 Message = "\'SomeProperty\' is a property and should be avoided.",
-                Severity = DiagnosticSeverity.Warning,
+                Severity = DiagnosticSeverity.Info,
                 Locations =
                     new[] {
                             new DiagnosticResultLocation("Test0.cs", 4, 28)

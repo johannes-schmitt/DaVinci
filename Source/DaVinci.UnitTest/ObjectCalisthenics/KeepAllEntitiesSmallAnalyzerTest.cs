@@ -93,7 +93,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 Id = "DaVinci.OC.7",
                 Message = "\'SomeClass\' contains more than 50 lines (53).",
-                Severity = DiagnosticSeverity.Warning,
+                Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 19) }
             };
 
@@ -160,7 +160,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 Id = "DaVinci.OC.7",
                 Message = "\'SomeClass\' contains more than 50 lines (51).",
-                Severity = DiagnosticSeverity.Warning,
+                Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 19) }
             };
 

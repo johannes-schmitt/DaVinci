@@ -30,7 +30,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 Id = "DaVinci.OC.8",
                 Message = "\'SomeClass\' contains more than 2 fields (3).",
-                Severity = DiagnosticSeverity.Warning,
+                Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 19) }
             };
 
@@ -53,7 +53,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 Id = "DaVinci.OC.8",
                 Message = "\'SomeClass\' contains more than 2 fields (4).",
-                Severity = DiagnosticSeverity.Warning,
+                Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 19) }
             };
 
@@ -88,7 +88,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 Id = "DaVinci.OC.8",
                 Message = "\'SomeStruct\' contains more than 2 fields (3).",
-                Severity = DiagnosticSeverity.Warning,
+                Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 20) }
             };
 
@@ -111,7 +111,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 Id = "DaVinci.OC.8",
                 Message = "\'SomeStruct\' contains more than 2 fields (4).",
-                Severity = DiagnosticSeverity.Warning,
+                Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 20) }
             };
 

@@ -14,7 +14,7 @@ namespace DaVinci.ObjectCalisthenics
         protected override LocalizableString MessageFormat => "The else keyword should be avoided.";
         protected override LocalizableString Description => "Rule #2 of Object Calisthenics is \"Don’t use the else keyword\".";
         protected override string Category => "Object Calisthenics";
-        protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Warning;
+        protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Info;
 
         public override void Initialize(AnalysisContext context)
         {

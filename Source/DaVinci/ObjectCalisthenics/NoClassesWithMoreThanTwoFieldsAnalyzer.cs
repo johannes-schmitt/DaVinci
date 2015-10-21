@@ -16,7 +16,7 @@ namespace DaVinci.ObjectCalisthenics
         protected override LocalizableString MessageFormat => "'{0}' contains more than " + MaximumNumberOfFields + " fields ({1}).";
         protected override LocalizableString Description => "Rule #8 of Object Calisthenics is \"No classes with more than " + MaximumNumberOfFields + " instance variables\".";
         protected override string Category => "Object Calisthenics";
-        protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Warning;
+        protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Info;
 
         public override void Initialize(AnalysisContext context)
         {

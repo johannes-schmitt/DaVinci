@@ -14,7 +14,7 @@ namespace DaVinci.ObjectCalisthenics
         protected override LocalizableString MessageFormat => "'{0}' contains more than 50 lines ({1}).";
         protected override LocalizableString Description => "Rule #7 of Object Calisthenics is \"Keep all entities small\".";
         protected override string Category => "Object Calisthenics";
-        protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Warning;
+        protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Info;
 
         public override void Initialize(AnalysisContext context)
         {

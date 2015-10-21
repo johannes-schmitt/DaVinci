@@ -25,7 +25,7 @@ namespace DaVinci
                         Title,
                         MessageFormat,
                         Category,
-                        DiagnosticSeverity.Warning,
+                        DefaultSeverity,
                         true,
                         Description));
 
