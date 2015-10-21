@@ -43,7 +43,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>DaVinci.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>..\DaVinci.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs">
@@ -60,7 +60,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DaVinci.snk" />
     <None Include="tools\CreateNuGetPackage.targets" />
     <None Include="DaVinci.nuspec">
       <SubType>Designer</SubType>
