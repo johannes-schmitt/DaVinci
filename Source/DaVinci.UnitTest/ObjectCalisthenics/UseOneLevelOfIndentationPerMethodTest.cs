@@ -1,4 +1,9 @@
-﻿using DaVinci.Test.Helpers;
+﻿using System;
+using System.Linq;
+using System.Net;
+
+using DaVinci.ObjectCalisthenics;
+using DaVinci.Test.Helpers;
 using DaVinci.Test.Verifiers;
 
 using Microsoft.CodeAnalysis;
@@ -12,7 +17,22 @@ namespace DaVinci.Test.ObjectCalisthenics
     {
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new DaVinci.ObjectCalisthenics.UseOneLevelOfIndentationPerMethod();
+            return new UseOneLevelOfIndentationPerMethod();
+        }
+
+        [TestMethod]
+        public async void HelpLinkUriExists()
+        {
+            var analyzer = GetCSharpDiagnosticAnalyzer();
+            foreach (var helpLinkUri in analyzer.SupportedDiagnostics.Select(a => new Uri(a.HelpLinkUri)))
+            {
+                var webRequest = WebRequest.CreateHttp(helpLinkUri);
+                webRequest.Method = "HEAD";
+                using (var response = (HttpWebResponse)await webRequest.GetResponseAsync())
+                {
+                    Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
+                }
+            }
         }
 
         [TestMethod]

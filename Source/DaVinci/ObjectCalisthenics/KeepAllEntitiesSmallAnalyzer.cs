@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 using DaVinci.Extensions.Microsoft.CodeAnalysis;
 
@@ -17,6 +18,7 @@ namespace DaVinci.ObjectCalisthenics
         protected override LocalizableString Description => "Rule #7 of Object Calisthenics is \"Keep all entities small\".";
         protected override string Category => "Object Calisthenics";
         protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Info;
+        protected override Uri HelpUri => null;
 
         public override void Initialize(AnalysisContext context)
         {

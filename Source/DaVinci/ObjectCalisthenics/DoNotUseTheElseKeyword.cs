@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -15,6 +16,7 @@ namespace DaVinci.ObjectCalisthenics
         protected override LocalizableString Description => "Rule #2 of Object Calisthenics is \"Don’t use the else keyword\".";
         protected override string Category => "Object Calisthenics";
         protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Info;
+        protected override Uri HelpUri => null;
 
         public override void Initialize(AnalysisContext context)
         {

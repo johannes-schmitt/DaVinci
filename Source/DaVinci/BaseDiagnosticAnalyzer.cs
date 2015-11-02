@@ -1,4 +1,5 @@
-﻿using System.Collections.Immutable;
+﻿using System;
+using System.Collections.Immutable;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
@@ -14,6 +15,8 @@ namespace DaVinci
         protected abstract string Category { get; }
         protected abstract DiagnosticSeverity DefaultSeverity { get; }
 
+        protected abstract Uri HelpUri { get; }
+
         private DiagnosticDescriptor rule;
 
         internal DiagnosticDescriptor Rule
@@ -27,7 +30,8 @@ namespace DaVinci
                         Category,
                         DefaultSeverity,
                         true,
-                        Description));
+                        Description,
+                        HelpUri?.AbsoluteUri));
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics => ImmutableArray.Create(Rule);
     }
