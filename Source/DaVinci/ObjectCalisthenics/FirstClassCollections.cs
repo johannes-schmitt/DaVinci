@@ -30,34 +30,50 @@ namespace DaVinci.ObjectCalisthenics
             var root = await context.SemanticModel.SyntaxTree.GetRootAsync();
             foreach (var classDeclaration in root.DescendantNodesAndSelf().OfType<ClassDeclarationSyntax>())
             {
-                var collectionFields = new List<FieldDeclarationSyntax>();
-                var nonCollectionFields = new List<FieldDeclarationSyntax>();
+                var fields = new Dictionary<FieldDeclarationType, IList<FieldDeclarationSyntax>>();
+                fields[FieldDeclarationType.Collection] = new List<FieldDeclarationSyntax>();
+                fields[FieldDeclarationType.NonCollection] = new List<FieldDeclarationSyntax>();
+
                 foreach (var fieldDeclaration in classDeclaration.DescendantNodes().OfType<FieldDeclarationSyntax>())
                 {
-                    if (fieldDeclaration.ImplementsInterface<IEnumerable>(context.SemanticModel))
-                    {
-                        collectionFields.Add(fieldDeclaration);
-                    }
-                    else
-                    {
-                        nonCollectionFields.Add(fieldDeclaration);
-                    }
+                    var fieldType = fieldDeclaration.ImplementsInterface<IEnumerable>(context.SemanticModel)
+                                        ? FieldDeclarationType.Collection
+                                        : FieldDeclarationType.NonCollection;
+
+                    fields[fieldType].Add(fieldDeclaration);
                 }
 
-                VerifyRule(context, nonCollectionFields, collectionFields);
+                VerifyRule(context, fields);
             }
         }
 
-        private void VerifyRule(SemanticModelAnalysisContext context, List<FieldDeclarationSyntax> nonCollectionFields, List<FieldDeclarationSyntax> collectionFields)
+        private void VerifyRule(SemanticModelAnalysisContext context, IDictionary<FieldDeclarationType, IList<FieldDeclarationSyntax>> fields)
         {
-            if (nonCollectionFields.Any())
+            foreach (var violation in GetRuleViolations(fields))
             {
-                foreach (var collectionField in collectionFields)
-                {
-                    context.ReportDiagnostic(
-                        Diagnostic.Create(Rule, collectionField.Declaration.Variables[0].Identifier.GetLocation()));
-                }
+                context.ReportDiagnostic(Diagnostic.Create(Rule, violation.Declaration.Variables[0].Identifier.GetLocation()));
             }
+        }
+
+        private IEnumerable<FieldDeclarationSyntax> GetRuleViolations(IDictionary<FieldDeclarationType, IList<FieldDeclarationSyntax>> fields)
+        {
+            if (fields[FieldDeclarationType.NonCollection].Any())
+            {
+                return fields[FieldDeclarationType.Collection];
+            }
+
+            if (fields[FieldDeclarationType.Collection].Any())
+            {
+                return fields[FieldDeclarationType.Collection].Skip(1);
+            }
+
+            return new List<FieldDeclarationSyntax>();
+        }
+
+        private enum FieldDeclarationType
+        {
+            Collection,
+            NonCollection
         }
     }
 }
