@@ -30,3 +30,8 @@ class SomeClass
 
 ## Refactoring patterns ##
 You can use the extract method pattern.
+
+## Further Links ##
+[http://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf](http://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf "http://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf")
+
+[http://refactoring.com/catalog/extractMethod.html](http://refactoring.com/catalog/extractMethod.html "http://refactoring.com/catalog/extractMethod.html")
