@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
+
+using DaVinci.Extensions.Microsoft.CodeAnalysis.CSharp.Syntax;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -31,37 +34,28 @@ namespace DaVinci.ObjectCalisthenics
                 var nonCollectionFields = new List<FieldDeclarationSyntax>();
                 foreach (var fieldDeclaration in classDeclaration.DescendantNodes().OfType<FieldDeclarationSyntax>())
                 {
-                    foreach (var variableDeclaration in fieldDeclaration.DescendantNodes().OfType<VariableDeclarationSyntax>())
+                    if (fieldDeclaration.ImplementsInterface<IEnumerable>(context.SemanticModel))
                     {
-                        var isCollectionField = false;
-                        var allInterfaces = context.SemanticModel.GetTypeInfo(variableDeclaration.Type).Type.AllInterfaces;
-
-                        foreach (var @interface in allInterfaces)
-                        {
-                            var fullQualifiedInterfaceName = @interface.ToDisplayString(new SymbolDisplayFormat(typeQualificationStyle: SymbolDisplayTypeQualificationStyle.NameAndContainingTypesAndNamespaces));
-                            if (fullQualifiedInterfaceName == "System.Collections.IEnumerable")
-                            {
-                                isCollectionField = true;
-                            }
-                        }
-
-                        if (isCollectionField)
-                        {
-                            collectionFields.Add(fieldDeclaration);
-                        }
-                        else
-                        {
-                            nonCollectionFields.Add(fieldDeclaration);
-                        }
+                        collectionFields.Add(fieldDeclaration);
+                    }
+                    else
+                    {
+                        nonCollectionFields.Add(fieldDeclaration);
                     }
                 }
 
-                if (nonCollectionFields.Any())
+                VerifyRule(context, nonCollectionFields, collectionFields);
+            }
+        }
+
+        private void VerifyRule(SemanticModelAnalysisContext context, List<FieldDeclarationSyntax> nonCollectionFields, List<FieldDeclarationSyntax> collectionFields)
+        {
+            if (nonCollectionFields.Any())
+            {
+                foreach (var collectionField in collectionFields)
                 {
-                    foreach (var collectionField in collectionFields)
-                    {
-                        context.ReportDiagnostic(Diagnostic.Create(Rule, collectionField.Declaration.Variables[0].Identifier.GetLocation()));
-                    }
+                    context.ReportDiagnostic(
+                        Diagnostic.Create(Rule, collectionField.Declaration.Variables[0].Identifier.GetLocation()));
                 }
             }
         }
