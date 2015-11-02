@@ -18,7 +18,7 @@ namespace DaVinci.ObjectCalisthenics
         protected override LocalizableString Description => "Rule #8 of Object Calisthenics is \"No classes with more than " + MaximumNumberOfFields + " instance variables\".";
         protected override string Category => "Object Calisthenics";
         protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Info;
-        protected override Uri HelpUri => null;
+        protected override Uri HelpUri => new Uri("https://github.com/johannesschmitt/DaVinci/blob/master/Documentation/DaVinci.OC.8.md");
 
         public override void Initialize(AnalysisContext context)
         {

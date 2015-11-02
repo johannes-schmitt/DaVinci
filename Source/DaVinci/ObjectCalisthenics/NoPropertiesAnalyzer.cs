@@ -14,7 +14,7 @@ namespace DaVinci.ObjectCalisthenics
         protected override LocalizableString Description => "Rule #9 of Object Calisthenics is \"No getters/setters/properties\".";
         protected override string Category => "Object Calisthenics";
         protected override DiagnosticSeverity DefaultSeverity => DiagnosticSeverity.Info;
-        protected override Uri HelpUri => null;
+        protected override Uri HelpUri => new Uri("https://github.com/johannesschmitt/DaVinci/blob/master/Documentation/DaVinci.OC.9.md");
 
         public override void Initialize(AnalysisContext context)
         {

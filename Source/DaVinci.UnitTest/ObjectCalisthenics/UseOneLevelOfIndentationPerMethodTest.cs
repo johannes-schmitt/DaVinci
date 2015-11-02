@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Net;
-
-using DaVinci.ObjectCalisthenics;
+﻿using DaVinci.ObjectCalisthenics;
 using DaVinci.Test.Helpers;
 using DaVinci.Test.Verifiers;
 
@@ -21,18 +17,10 @@ namespace DaVinci.Test.ObjectCalisthenics
         }
 
         [TestMethod]
-        public async void HelpLinkUriExists()
+        public void HelpLinkUriExists()
         {
             var analyzer = GetCSharpDiagnosticAnalyzer();
-            foreach (var helpLinkUri in analyzer.SupportedDiagnostics.Select(a => new Uri(a.HelpLinkUri)))
-            {
-                var webRequest = WebRequest.CreateHttp(helpLinkUri);
-                webRequest.Method = "HEAD";
-                using (var response = (HttpWebResponse)await webRequest.GetResponseAsync())
-                {
-                    Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
-                }
-            }
+            analyzer.VerifyAllHelpLinks();
         }
 
         [TestMethod]

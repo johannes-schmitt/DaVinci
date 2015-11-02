@@ -16,6 +16,13 @@ namespace DaVinci.Test.ObjectCalisthenics
         }
 
         [TestMethod]
+        public void HelpLinkUriExists()
+        {
+            var analyzer = GetCSharpDiagnosticAnalyzer();
+            analyzer.VerifyAllHelpLinks();
+        }
+
+        [TestMethod]
         public void MethodContainsIfWithoutElse_NoDiagnosticReported()
         {
             const string Code = @"
