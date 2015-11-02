@@ -30,7 +30,7 @@ namespace DaVinci.ObjectCalisthenics
             var root = await context.SemanticModel.SyntaxTree.GetRootAsync();
             foreach (var classDeclaration in root.DescendantNodesAndSelf().OfType<ClassDeclarationSyntax>())
             {
-                var fields = new Dictionary<FieldDeclarationType, IList<FieldDeclarationSyntax>>();
+                var fields = new Dictionary<FieldDeclarationType, ICollection<FieldDeclarationSyntax>>();
                 fields[FieldDeclarationType.Collection] = new List<FieldDeclarationSyntax>();
                 fields[FieldDeclarationType.NonCollection] = new List<FieldDeclarationSyntax>();
 
@@ -47,7 +47,7 @@ namespace DaVinci.ObjectCalisthenics
             }
         }
 
-        private void VerifyRule(SemanticModelAnalysisContext context, IDictionary<FieldDeclarationType, IList<FieldDeclarationSyntax>> fields)
+        private void VerifyRule(SemanticModelAnalysisContext context, IDictionary<FieldDeclarationType, ICollection<FieldDeclarationSyntax>> fields)
         {
             foreach (var violation in GetRuleViolations(fields))
             {
@@ -55,7 +55,7 @@ namespace DaVinci.ObjectCalisthenics
             }
         }
 
-        private IEnumerable<FieldDeclarationSyntax> GetRuleViolations(IDictionary<FieldDeclarationType, IList<FieldDeclarationSyntax>> fields)
+        private IEnumerable<FieldDeclarationSyntax> GetRuleViolations(IDictionary<FieldDeclarationType, ICollection<FieldDeclarationSyntax>> fields)
         {
             if (fields[FieldDeclarationType.NonCollection].Any())
             {
