@@ -30,24 +30,24 @@ namespace DaVinci.ObjectCalisthenics
             var root = await context.SemanticModel.SyntaxTree.GetRootAsync();
             foreach (var classDeclaration in root.DescendantNodesAndSelf().OfType<ClassDeclarationSyntax>())
             {
-                var fields = new Dictionary<FieldDeclarationType, ICollection<FieldDeclarationSyntax>>();
-                fields[FieldDeclarationType.Collection] = new List<FieldDeclarationSyntax>();
-                fields[FieldDeclarationType.NonCollection] = new List<FieldDeclarationSyntax>();
-
+                var fields = new List< FieldDeclarationsInfo >();
+ 
                 foreach (var fieldDeclaration in classDeclaration.DescendantNodes().OfType<FieldDeclarationSyntax>())
                 {
-                    var fieldType = fieldDeclaration.ImplementsInterface<IEnumerable>(context.SemanticModel)
+                    fields.Add(new FieldDeclarationsInfo
+                    {
+                        Type = fieldDeclaration.ImplementsInterface<IEnumerable>(context.SemanticModel)
                                         ? FieldDeclarationType.Collection
-                                        : FieldDeclarationType.NonCollection;
-
-                    fields[fieldType].Add(fieldDeclaration);
+                                        : FieldDeclarationType.NonCollection,
+                        Syntax = fieldDeclaration
+                    });
                 }
 
                 VerifyRule(context, fields);
             }
         }
 
-        private void VerifyRule(SemanticModelAnalysisContext context, IDictionary<FieldDeclarationType, ICollection<FieldDeclarationSyntax>> fields)
+        private void VerifyRule(SemanticModelAnalysisContext context, ICollection<FieldDeclarationsInfo> fields)
         {
             foreach (var violation in GetRuleViolations(fields))
             {
@@ -55,25 +55,32 @@ namespace DaVinci.ObjectCalisthenics
             }
         }
 
-        private IEnumerable<FieldDeclarationSyntax> GetRuleViolations(IDictionary<FieldDeclarationType, ICollection<FieldDeclarationSyntax>> fields)
+        private IEnumerable<FieldDeclarationSyntax> GetRuleViolations(ICollection<FieldDeclarationsInfo> fields)
         {
-            if (fields[FieldDeclarationType.NonCollection].Any())
+            
+            if (fields.Where( f => f.Type == FieldDeclarationType.NonCollection).Any())
             {
-                return fields[FieldDeclarationType.Collection];
+                return fields.Where(f => f.Type == FieldDeclarationType.Collection).Select(f => f.Syntax);
             }
 
-            if (fields[FieldDeclarationType.Collection].Any())
+            if (fields.Where(f => f.Type == FieldDeclarationType.Collection).Any())
             {
-                return fields[FieldDeclarationType.Collection].Skip(1);
+                return fields.Where(f => f.Type == FieldDeclarationType.Collection).Skip(1).Select(f => f.Syntax);
             }
 
             return new List<FieldDeclarationSyntax>();
         }
 
-        private enum FieldDeclarationType
+        internal enum FieldDeclarationType
         {
             Collection,
             NonCollection
+        }
+
+        internal class FieldDeclarationsInfo
+        {
+            public FieldDeclarationType Type;
+            public FieldDeclarationSyntax Syntax;
         }
     }
 }
