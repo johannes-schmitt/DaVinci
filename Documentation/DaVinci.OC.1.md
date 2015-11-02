@@ -4,6 +4,7 @@
 Having too many levels of indentation in your code is often bad for readability, and maintainability. Most of the time, you can't easily understand the code without compiling it in your head, especially if you have various conditions at different level, or a loop in another loop.
 
 ## Example ##
+```C#
     class SomeClass
     {
         private readonly int[,] grid = new int[10, 15];
@@ -25,6 +26,7 @@ Having too many levels of indentation in your code is often bad for readability,
             return result;
         }
     }
+```
 
 ## Refactoring patterns ##
 You can use the extract method pattern.
