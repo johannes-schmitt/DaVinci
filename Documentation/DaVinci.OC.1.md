@@ -5,27 +5,27 @@ Having too many levels of indentation in your code is often bad for readability,
 
 ## Example ##
 ```C#
-    class SomeClass
-    {
-        private readonly int[,] grid = new int[10, 15];
+class SomeClass
+{
+	private readonly int[,] grid = new int[10, 15];
 
-        public string SomeMethod()
-        {
-            string result = string.Empty;
+	public string SomeMethod()
+	{
+		string result = string.Empty;
 
-            for (int column = 0; column < 10; column++)
-            {
-                // 1st indentation
-                for (int row = 0; row < 10; row++)
-                {
-                    // 2nd indentation
-                    result += this.grid[row, column].ToString();
-                }
-            }
+		for (int column = 0; column < 10; column++)
+		{
+			// 1st indentation
+			for (int row = 0; row < 10; row++)
+			{
+				// 2nd indentation
+				result += this.grid[row, column].ToString();
+			}
+		}
 
-            return result;
-        }
-    }
+		return result;
+	}
+}
 ```
 
 ## Refactoring patterns ##
