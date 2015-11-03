@@ -54,6 +54,7 @@
     <Compile Include="Extensions\Microsoft\CodeAnalysis\CSharp\Syntax\FieldDeclarationSyntaxExtensions.cs" />
     <Compile Include="Extensions\Microsoft\CodeAnalysis\Diagnostics\AnalysisContextExtensions.cs" />
     <Compile Include="Extensions\Microsoft\CodeAnalysis\SyntaxNodeExtensions.cs" />
+    <Compile Include="ObjectCalisthenics\Oc5UseOneDotPerLine.cs" />
     <Compile Include="ObjectCalisthenics\Oc2DoNotUseTheElseKeyword.cs" />
     <Compile Include="ObjectCalisthenics\Oc4FirstClassCollections.cs" />
     <Compile Include="ObjectCalisthenics\Oc7KeepAllEntitiesSmallAnalyzer.cs" />

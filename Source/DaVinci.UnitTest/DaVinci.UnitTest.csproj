@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="Helpers\DiagnosticResultLocation.cs" />
     <Compile Include="Helpers\HelpLinkVerifier.cs" />
+    <Compile Include="ObjectCalisthenics\Oc5UseOneDotPerLineTest.cs" />
     <Compile Include="ObjectCalisthenics\Oc2DoNotUseTheElseKeywordTest.cs" />
     <Compile Include="ObjectCalisthenics\Oc4FirstClassCollectionsTest.cs" />
     <Compile Include="ObjectCalisthenics\Oc7KeepAllEntitiesSmallAnalyzerTest.cs" />
