@@ -1,7 +1,8 @@
 # Only one level of indentation per method #
 
 ## Description ##
-Having too many levels of indentation in your code is often bad for readability, and maintainability. Most of the time, you can't easily understand the code without compiling it in your head, especially if you have various conditions at different level, or a loop in another loop.
+Having too many levels of indentation in your code is a sign that the Single Responsibility Principle (SRP) is violated. Mostly, the method is doing things on different abstraction layers. 
+Because there are too many abstractions, the code can be hard to understand. 
 
 ## Example ##
 ```C#
@@ -29,9 +30,7 @@ class SomeClass
 ```
 
 ## Refactoring patterns ##
-You can use the extract method pattern.
+- [Extract Method](http://refactoring.com/catalog/extractMethod.html)
 
-## Further Links ##
-[http://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf](http://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf "http://www.cs.helsinki.fi/u/luontola/tdd-2009/ext/ObjectCalisthenics.pdf")
-
-[http://refactoring.com/catalog/extractMethod.html](http://refactoring.com/catalog/extractMethod.html "http://refactoring.com/catalog/extractMethod.html")
+## Category ##
+Object Calisthenics (Jeff Bay)

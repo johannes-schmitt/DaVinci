@@ -8,3 +8,6 @@ TBD.
 
 ## Refactoring patterns ##
 TBD.
+
+## Category ##
+Object Calisthenics (Jeff Bay)
