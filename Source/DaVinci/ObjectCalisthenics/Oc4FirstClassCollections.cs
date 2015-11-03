@@ -11,7 +11,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 namespace DaVinci.ObjectCalisthenics
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class FirstClassCollections : BaseDiagnosticAnalyzer
+    public class Oc4FirstClassCollections : BaseDiagnosticAnalyzer
     {
         protected override string DiagnosticId => "DaVinci.OC.4";
         protected override LocalizableString Title => "First class collections (Object Calisthenics Rule #4)";

@@ -8,11 +8,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DaVinci.Test.ObjectCalisthenics
 {
     [TestClass]
-    public class DoNotUseTheElseKeywordTest : DiagnosticVerifier
+    public class Oc2DoNotUseTheElseKeywordTest : DiagnosticVerifier
     {
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new DaVinci.ObjectCalisthenics.DoNotUseTheElseKeyword();
+            return new DaVinci.ObjectCalisthenics.Oc2DoNotUseTheElseKeyword();
         }
 
         [TestMethod]

@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 namespace DaVinci.ObjectCalisthenics
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class NoPropertiesAnalyzer : BaseDiagnosticAnalyzer
+    public class Oc9NoProperties : BaseDiagnosticAnalyzer
     {
         protected override string DiagnosticId => "DaVinci.OC.9";
         protected override LocalizableString Title => "Properties are not allowed (Object Calisthenics Rule #9)";

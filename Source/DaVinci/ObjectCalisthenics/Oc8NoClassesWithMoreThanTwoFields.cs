@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 namespace DaVinci.ObjectCalisthenics
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class NoClassesWithMoreThanTwoFieldsAnalyzer : BaseDiagnosticAnalyzer
+    public class Oc8NoClassesWithMoreThanTwoFields : BaseDiagnosticAnalyzer
     {
         private const int MaximumNumberOfFields = 2;
 

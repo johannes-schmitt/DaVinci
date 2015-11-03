@@ -8,11 +8,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DaVinci.Test.ObjectCalisthenics
 {
     [TestClass]
-    public class FirstClassCollectionsTest : DiagnosticVerifier
+    public class Oc4FirstClassCollectionsTest : DiagnosticVerifier
     {
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new DaVinci.ObjectCalisthenics.FirstClassCollections();
+            return new DaVinci.ObjectCalisthenics.Oc4FirstClassCollections();
         }
 
         [TestMethod]

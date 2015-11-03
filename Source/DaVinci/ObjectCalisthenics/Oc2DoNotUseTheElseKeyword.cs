@@ -7,7 +7,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 namespace DaVinci.ObjectCalisthenics
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class DoNotUseTheElseKeyword : BaseDiagnosticAnalyzer
+    public class Oc2DoNotUseTheElseKeyword : BaseDiagnosticAnalyzer
     {
         protected override string DiagnosticId => "DaVinci.OC.2";
         protected override LocalizableString Title => "Don’t use the else keyword (Object Calisthenics Rule #2)";

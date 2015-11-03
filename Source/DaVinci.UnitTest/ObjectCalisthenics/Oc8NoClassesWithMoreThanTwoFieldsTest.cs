@@ -8,11 +8,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DaVinci.Test.ObjectCalisthenics
 {
     [TestClass]
-    public class NoClassesWithMoreThanTwoFieldsAnalyzerTest : DiagnosticVerifier
+    public class Oc8NoClassesWithMoreThanTwoFieldsTest : DiagnosticVerifier
     {
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new DaVinci.ObjectCalisthenics.NoClassesWithMoreThanTwoFieldsAnalyzer();
+            return new DaVinci.ObjectCalisthenics.Oc8NoClassesWithMoreThanTwoFields();
         }
 
         [TestMethod]

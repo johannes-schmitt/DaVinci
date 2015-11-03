@@ -54,12 +54,12 @@
     <Compile Include="Extensions\Microsoft\CodeAnalysis\CSharp\Syntax\FieldDeclarationSyntaxExtensions.cs" />
     <Compile Include="Extensions\Microsoft\CodeAnalysis\Diagnostics\AnalysisContextExtensions.cs" />
     <Compile Include="Extensions\Microsoft\CodeAnalysis\SyntaxNodeExtensions.cs" />
-    <Compile Include="ObjectCalisthenics\DoNotUseTheElseKeyword.cs" />
-    <Compile Include="ObjectCalisthenics\FirstClassCollections.cs" />
-    <Compile Include="ObjectCalisthenics\KeepAllEntitiesSmallAnalyzer.cs" />
-    <Compile Include="ObjectCalisthenics\NoClassesWithMoreThanTwoFieldsAnalyzer.cs" />
-    <Compile Include="ObjectCalisthenics\NoPropertiesAnalyzer.cs" />
-    <Compile Include="ObjectCalisthenics\UseOneLevelOfIndentationPerMethod.cs" />
+    <Compile Include="ObjectCalisthenics\Oc2DoNotUseTheElseKeyword.cs" />
+    <Compile Include="ObjectCalisthenics\Oc4FirstClassCollections.cs" />
+    <Compile Include="ObjectCalisthenics\Oc7KeepAllEntitiesSmallAnalyzer.cs" />
+    <Compile Include="ObjectCalisthenics\Oc8NoClassesWithMoreThanTwoFields.cs" />
+    <Compile Include="ObjectCalisthenics\Oc9NoProperties.cs" />
+    <Compile Include="ObjectCalisthenics\Oc1UseOneLevelOfIndentationPerMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

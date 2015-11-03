@@ -9,7 +9,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 namespace DaVinci.ObjectCalisthenics
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class KeepAllEntitiesSmallAnalyzer : BaseDiagnosticAnalyzer
+    public class Oc7KeepAllEntitiesSmallAnalyzer : BaseDiagnosticAnalyzer
     {
         protected override string DiagnosticId => "DaVinci.OC.7";
         protected override LocalizableString Title => "Keep all entities small (Object Calisthenics Rule #7).";

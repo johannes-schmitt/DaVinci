@@ -107,12 +107,12 @@
     </Compile>
     <Compile Include="Helpers\DiagnosticResultLocation.cs" />
     <Compile Include="Helpers\HelpLinkVerifier.cs" />
-    <Compile Include="ObjectCalisthenics\DoNotUseTheElseKeywordTest.cs" />
-    <Compile Include="ObjectCalisthenics\FirstClassCollectionsTest.cs" />
-    <Compile Include="ObjectCalisthenics\KeepAllEntitiesSmallAnalyzerTest.cs" />
-    <Compile Include="ObjectCalisthenics\NoClassesWithMoreThanTwoFieldsAnalyzerTest.cs" />
-    <Compile Include="ObjectCalisthenics\NoPropertiesAnalyzerTest.cs" />
-    <Compile Include="ObjectCalisthenics\UseOneLevelOfIndentationPerMethodTest.cs" />
+    <Compile Include="ObjectCalisthenics\Oc2DoNotUseTheElseKeywordTest.cs" />
+    <Compile Include="ObjectCalisthenics\Oc4FirstClassCollectionsTest.cs" />
+    <Compile Include="ObjectCalisthenics\Oc7KeepAllEntitiesSmallAnalyzerTest.cs" />
+    <Compile Include="ObjectCalisthenics\Oc8NoClassesWithMoreThanTwoFieldsTest.cs" />
+    <Compile Include="ObjectCalisthenics\Oc9NoPropertiesTest.cs" />
+    <Compile Include="ObjectCalisthenics\Oc1UseOneLevelOfIndentationPerMethodTest.cs" />
     <Compile Include="Verifiers\CodeFixVerifier.cs" />
     <Compile Include="Verifiers\DiagnosticVerifier.cs" />
     <Compile Include="Verifiers\CodeFixVerifier.Helper.cs" />

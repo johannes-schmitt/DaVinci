@@ -9,11 +9,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DaVinci.Test.ObjectCalisthenics
 {
     [TestClass]
-    public class UseOneLevelOfIndentationPerMethodTest : DiagnosticVerifier
+    public class Oc1UseOneLevelOfIndentationPerMethodTest : DiagnosticVerifier
     {
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
-            return new UseOneLevelOfIndentationPerMethod();
+            return new Oc1UseOneLevelOfIndentationPerMethod();
         }
 
         [TestMethod]

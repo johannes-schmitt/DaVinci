@@ -10,7 +10,7 @@ using DaVinci.Extensions.Microsoft.CodeAnalysis.CSharp.Syntax;
 namespace DaVinci.ObjectCalisthenics
 {
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
-    public class UseOneLevelOfIndentationPerMethod : BaseDiagnosticAnalyzer
+    public class Oc1UseOneLevelOfIndentationPerMethod : BaseDiagnosticAnalyzer
     {
         protected override string DiagnosticId => "DaVinci.OC.1";
         protected override LocalizableString Title => "Use one level of indentation per method (Object Calisthenics Rule #1).";
