@@ -17,6 +17,13 @@ namespace DaVinci.Test.ObjectCalisthenics
         }
 
         [TestMethod]
+        public void HelpLinkUriExists()
+        {
+            var analyzer = GetCSharpDiagnosticAnalyzer();
+            analyzer.VerifyAllHelpLinks();
+        }
+
+        [TestMethod]
         public void OneExpressionContains2Dots_DiagnosticIsReported()
         {
             const string Code = @"
@@ -35,7 +42,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.6",
+                Id = "DaVinci.OC.5",
                 Message = "\'loc.current.substring(0, 1)\' contains more than 1 dot per line.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 6, 40) }
