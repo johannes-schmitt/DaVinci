@@ -28,7 +28,12 @@ namespace DaVinci.ObjectCalisthenics
 
         private void AnalyzeLine(SyntaxNodeAnalysisContext context)
         {
-            if(context.Node.DescendantTokens().OfType<SyntaxToken>().Count((st) => st.IsKind(SyntaxKind.DotToken)) > 1)
+            if (context.Node.DescendantNodes().OfType<InvocationExpressionSyntax>().Any())
+            {
+                return;
+            }
+
+            if (context.Node.DescendantTokens().OfType<SyntaxToken>().Count((st) => st.IsKind(SyntaxKind.DotToken)) > 1)
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), context.Node.GetText()));
             }

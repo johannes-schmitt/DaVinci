@@ -70,5 +70,58 @@ namespace DaVinci.Test.ObjectCalisthenics
            
             VerifyCSharpDiagnostic(Code);
         }
+
+        [TestMethod]
+        public void NestedExpressionContains2Dots_DiagnosticIsReported()
+        {
+            const string Code = @"
+           class Board {
+                public String boardRepresentation() {
+                    StringBuilder buf = new StringBuilder();
+
+                    for (Location loc : squares()) {
+                        buf.append(loc.current.substring(0, 1));
+                    }
+
+                    return buf.toString();
+                }
+             }";
+
+            var expected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.5",
+                Message = "\'loc.current.substring(0, 1)\' contains more than 1 dot per line.",
+                Severity = DiagnosticSeverity.Info,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 7, 36) }
+            };
+
+            VerifyCSharpDiagnostic(Code, expected);
+        }
+        //[TestMethod]
+        //public void ThreeNestedExpressionContains2Dots_DiagnosticIsReported()
+        //{
+        //    const string Code = @"
+        //   class Board {
+        //        public String boardRepresentation() {
+        //            StringBuilder buf = new StringBuilder();
+
+        //            for (Location loc : squares()) {
+        //                buf.append(loc.current.substring(point.getvalue(), point.getvalue()));
+        //            }
+
+        //            return buf.toString();
+        //        }
+        //     }";
+
+        //    var expected = new DiagnosticResult
+        //    {
+        //        Id = "DaVinci.OC.5",
+        //        Message = "\'loc.current.substring(point.getvalue(), point.getvalue())\' contains more than 1 dot per line.",
+        //        Severity = DiagnosticSeverity.Info,
+        //        Locations = new[] { new DiagnosticResultLocation("Test0.cs", 7, 36) }
+        //    };
+
+        //    VerifyCSharpDiagnostic(Code, expected);
+        //}
     }
 }
