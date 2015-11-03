@@ -77,5 +77,42 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             VerifyCSharpDiagnostic(Code, expected);
         }
+
+        [TestMethod]
+        public void ClassContainsTwoListsAndAnotherField_ReportDiagnostic()
+        {
+            const string Code = @"
+            class SomeClass
+            {
+                private System.Collections.Generic.List<int> firstList;
+                private System.Collections.Generic.List<int> secondList;
+                private int intField;
+
+                public SomeClass(int val)
+                {
+                    this.firstList = new System.Collections.Generic.List<int>();
+                    this.secondList = new System.Collections.Generic.List<int>();
+                    this.intField = val;
+                }
+            }";
+
+            var firstExpected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.4",
+                Message = "Consider wrapping the collection into a separate class.",
+                Severity = DiagnosticSeverity.Info,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 62)}
+            };
+
+            var secondExpected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.4",
+                Message = "Consider wrapping the collection into a separate class.",
+                Severity = DiagnosticSeverity.Info,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 5, 62) }
+            };
+
+            VerifyCSharpDiagnostic(Code, firstExpected, secondExpected);
+        }
     }
 }
