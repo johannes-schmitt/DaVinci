@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -50,20 +49,20 @@ namespace DaVinci.ObjectCalisthenics
 
         private void VerifyRule(SemanticModelAnalysisContext context, IEnumerable<dynamic> fieldsInfo)
         {
-            foreach (var violatedField in GetRuleViolations(fieldsInfo))
+            foreach (var violatedField in GetRuleViolations(fieldsInfo.ToList()))
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, violatedField.Declaration.Variables[0].Identifier.GetLocation()));
             }
         }
 
-        private IEnumerable<FieldDeclarationSyntax> GetRuleViolations(IEnumerable<dynamic> fieldsInfo)
+        private IEnumerable<FieldDeclarationSyntax> GetRuleViolations(IList<dynamic> fieldsInfo)
         {
-            if (fieldsInfo.Where(f => !f.IsCollection).Any())
+            if (fieldsInfo.Any(f => !f.IsCollection))
             {
                 return fieldsInfo.Where(f => f.IsCollection).Select(f => f.Syntax as FieldDeclarationSyntax);
             }
 
-            if (fieldsInfo.Where(f => f.IsCollection).Any())
+            if (fieldsInfo.Any(f => f.IsCollection))
             {
                 return fieldsInfo.Where(f => f.IsCollection).Skip(1).Select(f => f.Syntax as FieldDeclarationSyntax);
             }
