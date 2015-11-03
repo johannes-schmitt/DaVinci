@@ -17,6 +17,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Source\SharedAssemblyInfo.cs = Source\SharedAssemblyInfo.cs
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{43695ECC-BBEC-4EEA-8BE2-8CCEF8B22D73}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\DaVinci.OC.1.md = Documentation\DaVinci.OC.1.md
+		Documentation\DaVinci.OC.2.md = Documentation\DaVinci.OC.2.md
+		Documentation\DaVinci.OC.4.md = Documentation\DaVinci.OC.4.md
+		Documentation\DaVinci.OC.7.md = Documentation\DaVinci.OC.7.md
+		Documentation\DaVinci.OC.8.md = Documentation\DaVinci.OC.8.md
+		Documentation\DaVinci.OC.9.md = Documentation\DaVinci.OC.9.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
