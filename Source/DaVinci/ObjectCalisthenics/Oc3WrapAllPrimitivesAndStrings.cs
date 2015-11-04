@@ -1,4 +1,6 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using System.Linq;
+
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
@@ -17,17 +19,26 @@ namespace DaVinci.ObjectCalisthenics
 
         public override void Initialize(AnalysisContext context)
         {
-            context.RegisterSyntaxNodeAction(AnalyzeMethodDeclaration, SyntaxKind.Parameter);
+            context.RegisterSyntaxNodeAction(AnalyzeMethodDeclaration, SyntaxKind.MethodDeclaration);
         }
 
         private void AnalyzeMethodDeclaration(SyntaxNodeAnalysisContext context)
         {
-            var parameterSyntax = context.Node as ParameterSyntax;
+            var methodDeclarationSyntax = context.Node as MethodDeclarationSyntax;
 
-            var predefinedTypeSyntax = parameterSyntax?.Type as PredefinedTypeSyntax;
-            if (predefinedTypeSyntax != null && predefinedTypeSyntax.Keyword.Text != "object")
+            if (methodDeclarationSyntax == null)
             {
-                context.ReportDiagnostic(Diagnostic.Create(Rule, parameterSyntax.Identifier.GetLocation(), parameterSyntax.Identifier.Text));
+                return;
+            }
+
+            foreach (var parameterSyntax in methodDeclarationSyntax.DescendantNodes().OfType<ParameterSyntax>())
+
+            {
+                var predefinedTypeSyntax = parameterSyntax.Type as PredefinedTypeSyntax;
+                if (predefinedTypeSyntax != null && predefinedTypeSyntax.Keyword.Text != "object")
+                {
+                    context.ReportDiagnostic(Diagnostic.Create(Rule, parameterSyntax.Identifier.GetLocation(), parameterSyntax.Identifier.Text));
+                }
             }
         }
     }

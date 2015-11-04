@@ -109,5 +109,19 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             VerifyCSharpDiagnostic(Code, expected1, expected2);
         }
+
+        /*[Test]
+        public void MethodIsPrivateAndTakesPrimitiveAsParameter_NoDiagnosticReported()
+        {
+            const string Code = @"
+                class SomeClass
+                {
+                    private void DoSomething(int parameter)
+                    {
+                    }
+                }";
+
+            VerifyCSharpDiagnostic(Code);
+        }*/
     }
 }
