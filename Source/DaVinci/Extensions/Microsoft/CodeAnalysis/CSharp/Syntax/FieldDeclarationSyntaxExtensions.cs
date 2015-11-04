@@ -17,19 +17,9 @@ namespace DaVinci.Extensions.Microsoft.CodeAnalysis.CSharp.Syntax
         {
             var allInterfaces = semanticModel.GetTypeInfo(variableDeclaration.Type).Type.AllInterfaces;
 
-            foreach (var @interface in allInterfaces)
-            {
-                var fullQualifiedInterfaceName =
-                    @interface.ToDisplayString(
-                        new SymbolDisplayFormat(
-                            typeQualificationStyle: SymbolDisplayTypeQualificationStyle.NameAndContainingTypesAndNamespaces));
-
-                if (fullQualifiedInterfaceName == typeof(T).FullName)
-                {
-                    return true;
-                }
-            }
-            return false;
+            return allInterfaces
+                .Select(@interface => @interface.ToFullQualifiedName())
+                .Any(fullQualifiedInterfaceName => fullQualifiedInterfaceName == typeof(T).FullName);
         }
     }
 }
