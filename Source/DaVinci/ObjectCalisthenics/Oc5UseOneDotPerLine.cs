@@ -1,12 +1,6 @@
 ﻿using System.Linq;
-
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
-
-using DaVinci.Extensions.Microsoft.CodeAnalysis.Diagnostics;
-using DaVinci.Extensions.Microsoft.CodeAnalysis.CSharp.Syntax;
-using System;
 using Microsoft.CodeAnalysis.CSharp;
 
 namespace DaVinci.ObjectCalisthenics
@@ -28,10 +22,9 @@ namespace DaVinci.ObjectCalisthenics
 
         private void AnalyzeLine(SyntaxNodeAnalysisContext context)
         {
-            if (context.Node.DescendantTokens().Count((st) => st.IsKind(SyntaxKind.DotToken)) > 1)
+            if (context.Node.DescendantTokens().Count(st => st.IsKind(SyntaxKind.DotToken)) > 1)
             {
                 context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), context.Node.Parent.GetText()));
-                return;
             }
         }
     }
