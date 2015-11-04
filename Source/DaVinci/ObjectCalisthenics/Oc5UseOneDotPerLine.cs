@@ -23,21 +23,16 @@ namespace DaVinci.ObjectCalisthenics
 
         public override void Initialize(AnalysisContext context)
         {
-            context.RegisterSyntaxNodeAction(AnalyzeLine, SyntaxKind.InvocationExpression);
+            context.RegisterSyntaxNodeAction(AnalyzeLine, SyntaxKind.SimpleMemberAccessExpression);
         }
 
         private void AnalyzeLine(SyntaxNodeAnalysisContext context)
         {
-            if (context.Node.DescendantNodes().OfType<InvocationExpressionSyntax>().Any())
+            if (context.Node.DescendantTokens().Count((st) => st.IsKind(SyntaxKind.DotToken)) > 1)
             {
+                context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), context.Node.Parent.GetText()));
                 return;
             }
-
-            if (context.Node.DescendantTokens().OfType<SyntaxToken>().Count((st) => st.IsKind(SyntaxKind.DotToken)) > 1)
-            {
-                context.ReportDiagnostic(Diagnostic.Create(Rule, context.Node.GetLocation(), context.Node.GetText()));
-            }
         }
-    }
+    }l
 }
-//SimpleMemberAccessExpression

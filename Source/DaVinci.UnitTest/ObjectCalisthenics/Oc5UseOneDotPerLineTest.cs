@@ -97,31 +97,32 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             VerifyCSharpDiagnostic(Code, expected);
         }
-        //[TestMethod]
-        //public void ThreeNestedExpressionContains2Dots_DiagnosticIsReported()
-        //{
-        //    const string Code = @"
-        //   class Board {
-        //        public String boardRepresentation() {
-        //            StringBuilder buf = new StringBuilder();
 
-        //            for (Location loc : squares()) {
-        //                buf.append(loc.current.substring(point.getvalue(), point.getvalue()));
-        //            }
+        [TestMethod]
+        public void ThreeNestedExpressionContains2Dots_DiagnosticIsReported()
+        {
+            const string Code = @"
+           class Board {
+                public String boardRepresentation() {
+                    StringBuilder buf = new StringBuilder();
 
-        //            return buf.toString();
-        //        }
-        //     }";
+                    for (Location loc : squares()) {
+                        buf.append(loc.current.substring(point.getvalue(), point.getvalue()));
+                    }
 
-        //    var expected = new DiagnosticResult
-        //    {
-        //        Id = "DaVinci.OC.5",
-        //        Message = "\'loc.current.substring(point.getvalue(), point.getvalue())\' contains more than 1 dot per line.",
-        //        Severity = DiagnosticSeverity.Info,
-        //        Locations = new[] { new DiagnosticResultLocation("Test0.cs", 7, 36) }
-        //    };
+                    return buf.toString();
+                }
+             }";
 
-        //    VerifyCSharpDiagnostic(Code, expected);
-        //}
+            var expected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.5",
+                Message = "\'loc.current.substring(point.getvalue(), point.getvalue())\' contains more than 1 dot per line.",
+                Severity = DiagnosticSeverity.Info,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 7, 36) }
+            };
+
+            VerifyCSharpDiagnostic(Code, expected);
+        }
     }
 }
