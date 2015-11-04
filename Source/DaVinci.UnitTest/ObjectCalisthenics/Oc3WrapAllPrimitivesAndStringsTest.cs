@@ -79,5 +79,35 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             VerifyCSharpDiagnostic(Code);
         }
+
+        [Test]
+        public void MethodTakesMultiplePrimitiveAsParameter_MultipleDiagnosticReported()
+        {
+            const string Code = @"
+                class SomeClass
+                {
+                    public void DoSomething(int parameter1, uint parameter2)
+                    {
+                    }
+                }";
+
+            var expected1 = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.3",
+                Message = "'parameter1' should be wrapped as it's a primitive.",
+                Severity = DiagnosticSeverity.Info,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 49) }
+            };
+
+            var expected2 = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.3",
+                Message = "'parameter2' should be wrapped as it's a primitive.",
+                Severity = DiagnosticSeverity.Info,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 66) }
+            };
+
+            VerifyCSharpDiagnostic(Code, expected1, expected2);
+        }
     }
 }
