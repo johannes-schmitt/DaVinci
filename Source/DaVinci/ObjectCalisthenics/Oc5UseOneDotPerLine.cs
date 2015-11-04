@@ -34,5 +34,5 @@ namespace DaVinci.ObjectCalisthenics
                 return;
             }
         }
-    }l
+    }
 }
