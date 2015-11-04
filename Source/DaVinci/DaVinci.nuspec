@@ -4,13 +4,18 @@
     <id>DaVinci</id>
     <version>$version$</version>
     <title>DaVinci</title>
-    <authors>Johannes Schmitt</authors>
-    <owners>Johannes Schmitt</owners>
+    <authors>Johannes Schmitt, Toni Luchiean</authors>
+    <owners>Johannes Schmitt, Toni Luchiean</owners>
     <projectUrl>https://github.com/johannesschmitt/DaVinci</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>DaVinci code analyzer</description>
-    <copyright>2015 Johannes Schmitt</copyright>
-    <tags>DaVinci, analyzers</tags>
+    <description>
+      The goal of DaVinci is to help you to write better object-oriented C# code. Better means maintainable, readable and testable code.
+      Because DaVinci's rule are very strict, it's recommended to use DaVinci when you exercise programming (e.g. coding dojo).
+
+      For the currently supported rules, have a look here: https://github.com/johannesschmitt/DaVinci/tree/master/Documentation.
+    </description>
+    <copyright>2015 Johannes Schmitt, Toni Luchiean</copyright>
+    <tags>C#, analyzer, analyzers, Roslyn, CodeAnalysis, testability, readability, maintainability</tags>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System" targetFramework="" />
     </frameworkAssemblies>
