@@ -53,6 +53,7 @@
     <Compile Include="Extensions\Microsoft\CodeAnalysis\CSharp\Syntax\BlockSyntaxExtensions.cs" />
     <Compile Include="Extensions\Microsoft\CodeAnalysis\CSharp\Syntax\FieldDeclarationSyntaxExtensions.cs" />
     <Compile Include="Extensions\Microsoft\CodeAnalysis\Diagnostics\AnalysisContextExtensions.cs" />
+    <Compile Include="Extensions\Microsoft\CodeAnalysis\SymbolExtensions.cs" />
     <Compile Include="Extensions\Microsoft\CodeAnalysis\SyntaxNodeExtensions.cs" />
     <Compile Include="ObjectCalisthenics\Oc1UseOneLevelOfIndentationPerMethod.cs" />
     <Compile Include="ObjectCalisthenics\Oc2DoNotUseTheElseKeyword.cs" />
