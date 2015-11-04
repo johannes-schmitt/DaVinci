@@ -3,11 +3,11 @@ using DaVinci.Test.Verifiers;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace DaVinci.Test.ObjectCalisthenics
 {
-    [TestClass]
+    [TestFixture]
     public class Oc2DoNotUseTheElseKeywordTest : DiagnosticVerifier
     {
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
@@ -15,14 +15,14 @@ namespace DaVinci.Test.ObjectCalisthenics
             return new DaVinci.ObjectCalisthenics.Oc2DoNotUseTheElseKeyword();
         }
 
-        [TestMethod]
+        [Test]
         public void HelpLinkUriExists()
         {
             var analyzer = GetCSharpDiagnosticAnalyzer();
             analyzer.VerifyAllHelpLinks();
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsIfWithoutElse_NoDiagnosticReported()
         {
             const string Code = @"
@@ -40,7 +40,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsIfWithElse_OneDiagnosticReported()
         {
             const string Code = @"
@@ -73,7 +73,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsIfWithTwoElses_TwoDiagnosticReported()
         {
             const string Code = @"

@@ -3,11 +3,11 @@ using DaVinci.Test.Verifiers;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace DaVinci.Test.ObjectCalisthenics
 {
-    [TestClass]
+    [TestFixture]
     public class Oc4FirstClassCollectionsTest : DiagnosticVerifier
     {
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
@@ -15,14 +15,14 @@ namespace DaVinci.Test.ObjectCalisthenics
             return new DaVinci.ObjectCalisthenics.Oc4FirstClassCollections();
         }
 
-        [TestMethod]
+        [Test]
         public void HelpLinkUriExists()
         {
             var analyzer = GetCSharpDiagnosticAnalyzer();
             analyzer.VerifyAllHelpLinks();
         }
 
-        [TestMethod]
+        [Test]
         public void ClassContainsListAndField_ReportDiagnostic()
         {
             const string Code = @"
@@ -50,7 +50,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void ClassContainsTwoLists_ReportDiagnostic()
         {
             const string Code = @"
@@ -78,7 +78,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void ClassContainsTwoListsAndAnotherField_ReportDiagnostic()
         {
             const string Code = @"

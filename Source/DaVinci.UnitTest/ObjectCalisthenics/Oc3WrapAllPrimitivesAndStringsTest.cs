@@ -4,11 +4,11 @@ using DaVinci.Test.Verifiers;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace DaVinci.Test.ObjectCalisthenics
 {
-    [TestClass]
+    [TestFixture]
     public class Oc3WrapAllPrimitivesAndStringsTest : DiagnosticVerifier
     {
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
@@ -16,14 +16,14 @@ namespace DaVinci.Test.ObjectCalisthenics
             return new Oc3WrapAllPrimitivesAndStrings();
         }
 
-        [TestMethod]
+        [Test]
         public void HelpLinkUriExists()
         {
             var analyzer = GetCSharpDiagnosticAnalyzer();
             analyzer.VerifyAllHelpLinks();
         }
 
-        [TestMethod]
+        [Test]
         public void MethodTakesIntAsParameter_DiagnosticReported()
         {
             const string Code = @"
@@ -45,7 +45,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodTakesUIntAsParameter_DiagnosticReported()
         {
             const string Code = @"
@@ -67,7 +67,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodTakesNonPrimitiveAsParameter_NoDiagnosticReported()
         {
             const string Code = @"
@@ -85,7 +85,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodTakesStringAsParameter_DiagnosticReported()
         {
             const string Code = @"
@@ -107,7 +107,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodTakesObjectAsParameter_DiagnosticReported()
         {
             const string Code = @"

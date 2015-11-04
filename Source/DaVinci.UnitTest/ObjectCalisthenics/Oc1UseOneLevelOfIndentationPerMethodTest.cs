@@ -4,11 +4,11 @@ using DaVinci.Test.Verifiers;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace DaVinci.Test.ObjectCalisthenics
 {
-    [TestClass]
+    [TestFixture]
     public class Oc1UseOneLevelOfIndentationPerMethodTest : DiagnosticVerifier
     {
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
@@ -16,14 +16,14 @@ namespace DaVinci.Test.ObjectCalisthenics
             return new Oc1UseOneLevelOfIndentationPerMethod();
         }
 
-        [TestMethod]
+        [Test]
         public void HelpLinkUriExists()
         {
             var analyzer = GetCSharpDiagnosticAnalyzer();
             analyzer.VerifyAllHelpLinks();
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsNestedForLoop_DiagnosticIsReported()
         {
             const string Code = @"
@@ -58,7 +58,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsNestedForEachLoop_DiagnosticIsReported()
         {
             const string Code = @"
@@ -90,7 +90,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsNestedWhileLoop_DiagnosticIsReported()
         {
             const string Code = @"
@@ -119,7 +119,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsNestedDoWhileLoop_DiagnosticIsReported()
         {
             const string Code = @"
@@ -150,7 +150,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsNestedIfStatement_DiagnosticIsReported()
         {
             const string Code = @"
@@ -179,7 +179,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsControlStructureInElseStatement_DiagnosticIsReported()
         {
             const string Code = @"
@@ -212,7 +212,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsControlStructureInTryStatement_DiagnosticIsReported()
         {
             const string Code = @"
@@ -245,7 +245,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsControlStructureInCatchStatement_DiagnosticIsReported()
         {
             const string Code = @"
@@ -278,7 +278,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsControlStructureInSecondCatchStatement_DiagnosticIsReported()
         {
             const string Code = @"
@@ -315,7 +315,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsControlStructureInFinallyStatement_DiagnosticIsReported()
         {
             const string Code = @"
@@ -352,7 +352,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsTryStatementInControlStructure_DiagnosticIsReported()
         {
             const string Code = @"
@@ -385,7 +385,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             VerifyCSharpDiagnostic(Code, expected);
         }
 
-        [TestMethod]
+        [Test]
         public void MethodContainsOnlyOneIndentation_NoDiagnosticIsReported()
         {
             const string Code = @"

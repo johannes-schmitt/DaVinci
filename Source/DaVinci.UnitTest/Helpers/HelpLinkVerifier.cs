@@ -2,7 +2,7 @@
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace DaVinci.Test.Helpers
 {
@@ -20,7 +20,7 @@ namespace DaVinci.Test.Helpers
         private static void VerifyThatHelpLinkContainsDiagnosticId(this DiagnosticDescriptor diagnosticDescriptor)
         {
             var helpLinkUri = diagnosticDescriptor.HelpLinkUri;
-            StringAssert.Contains(helpLinkUri, diagnosticDescriptor.Id);
+            StringAssert.Contains(diagnosticDescriptor.Id, helpLinkUri);
         }
 
         private static void VerifyThatHelpLinkExists(this DiagnosticDescriptor diagnosticDescriptor)
