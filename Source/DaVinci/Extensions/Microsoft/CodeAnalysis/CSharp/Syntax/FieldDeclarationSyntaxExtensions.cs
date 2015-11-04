@@ -10,16 +10,8 @@ namespace DaVinci.Extensions.Microsoft.CodeAnalysis.CSharp.Syntax
         public static bool ImplementsInterface<T>(this FieldDeclarationSyntax field, SemanticModel semanticModel)
         {
             var variableDeclaration = field.DescendantNodes().OfType<VariableDeclarationSyntax>().First();
-            return IsCollectionField<T>(semanticModel, variableDeclaration);
-        }
-
-        private static bool IsCollectionField<T>(SemanticModel semanticModel, VariableDeclarationSyntax variableDeclaration)
-        {
-            var allInterfaces = semanticModel.GetTypeInfo(variableDeclaration.Type).Type.AllInterfaces;
-
-            return allInterfaces
-                .Select(@interface => @interface.ToFullQualifiedName())
-                .Any(fullQualifiedInterfaceName => fullQualifiedInterfaceName == typeof(T).FullName);
+            var variableType = semanticModel.GetTypeInfo(variableDeclaration.Type).Type;
+            return variableType.ImplementsInterface<T>();
         }
     }
 }
