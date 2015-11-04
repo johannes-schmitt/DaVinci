@@ -23,48 +23,43 @@ namespace DaVinci.Test.ObjectCalisthenics
             analyzer.VerifyAllHelpLinks();
         }
 
-        [Test]
-        public void MethodTakesIntAsParameter_DiagnosticReported()
+        [TestCase("decimal", true)]
+        [TestCase("double", true)]
+        [TestCase("float", true)]
+        [TestCase("int", true)]
+        [TestCase("uint", true)]
+        [TestCase("long", true)]
+        [TestCase("ulong", true)]
+        [TestCase("object", false)]
+        [TestCase("short", true)]
+        [TestCase("ushort", true)]
+        [TestCase("string", true)]
+        public void MethodWithBuiltInParameter_DiagnosticReported(string parameterType, bool expectDiagnostic)
         {
-            const string Code = @"
+            var code = @"
                 class SomeClass
                 {
-                    public void DoSomething(int parameter)
+                    public void DoSomething(" + parameterType + @" parameter)
                     {
                     }
                 }";
 
-            var expected = new DiagnosticResult
+            if (expectDiagnostic)
             {
-                Id = "DaVinci.OC.3",
-                Message = "'parameter' should be wrapped as it's a primitive.",
-                Severity = DiagnosticSeverity.Info,
-                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 49) }
-            };
-
-            VerifyCSharpDiagnostic(Code, expected);
-        }
-
-        [Test]
-        public void MethodTakesUIntAsParameter_DiagnosticReported()
-        {
-            const string Code = @"
-                class SomeClass
+                var expected = new DiagnosticResult
                 {
-                    public void DoSomething(uint parameter)
-                    {
-                    }
-                }";
+                    Id = "DaVinci.OC.3",
+                    Message = "'parameter' should be wrapped as it's a primitive.",
+                    Severity = DiagnosticSeverity.Info,
+                    Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 45 + parameterType.Length + 1) }
+                };
 
-            var expected = new DiagnosticResult
+                VerifyCSharpDiagnostic(code, expected);
+            }
+            else
             {
-                Id = "DaVinci.OC.3",
-                Message = "'parameter' should be wrapped as it's a primitive.",
-                Severity = DiagnosticSeverity.Info,
-                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 50) }
-            };
-
-            VerifyCSharpDiagnostic(Code, expected);
+                VerifyCSharpDiagnostic(code);
+            }
         }
 
         [Test]
@@ -78,42 +73,6 @@ namespace DaVinci.Test.ObjectCalisthenics
                 class SomeClass
                 {
                     public void DoSomething(NonPrimitive parameter)
-                    {
-                    }
-                }";
-
-            VerifyCSharpDiagnostic(Code);
-        }
-
-        [Test]
-        public void MethodTakesStringAsParameter_DiagnosticReported()
-        {
-            const string Code = @"
-                class SomeClass
-                {
-                    public void DoSomething(string parameter)
-                    {
-                    }
-                }";
-
-            var expected = new DiagnosticResult
-            {
-                Id = "DaVinci.OC.3",
-                Message = "'parameter' should be wrapped as it's a primitive.",
-                Severity = DiagnosticSeverity.Info,
-                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 52) }
-            };
-
-            VerifyCSharpDiagnostic(Code, expected);
-        }
-
-        [Test]
-        public void MethodTakesObjectAsParameter_DiagnosticReported()
-        {
-            const string Code = @"
-                class SomeClass
-                {
-                    public void DoSomething(object parameter)
                     {
                     }
                 }";
