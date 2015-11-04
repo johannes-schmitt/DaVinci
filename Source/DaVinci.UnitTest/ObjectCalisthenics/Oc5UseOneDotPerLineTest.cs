@@ -26,7 +26,7 @@ namespace DaVinci.Test.ObjectCalisthenics
         [TestMethod]
         public void OneExpressionContains2Dots_DiagnosticIsReported()
         {
-            const string Code = @"
+            const string code = @"
            class Board {
                 public String boardRepresentation() {
                     StringBuilder buf = new StringBuilder();
@@ -48,13 +48,13 @@ namespace DaVinci.Test.ObjectCalisthenics
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 6, 40) }
             };
 
-            VerifyCSharpDiagnostic(Code, expected);
+            VerifyCSharpDiagnostic(code, expected);
         }
 
         [TestMethod]
         public void NoExpressionContains2Dots_NoDiagnosticIsReported()
         {
-            const string Code = @"
+            const string code = @"
            class Board {
                 public String boardRepresentation() {
                     StringBuilder buf = new StringBuilder();
@@ -68,13 +68,13 @@ namespace DaVinci.Test.ObjectCalisthenics
                 }
              }";
            
-            VerifyCSharpDiagnostic(Code);
+            VerifyCSharpDiagnostic(code);
         }
 
         [TestMethod]
         public void NestedExpressionContains2Dots_DiagnosticIsReported()
         {
-            const string Code = @"
+            const string code = @"
            class Board {
                 public String boardRepresentation() {
                     StringBuilder buf = new StringBuilder();
@@ -95,13 +95,13 @@ namespace DaVinci.Test.ObjectCalisthenics
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 7, 36) }
             };
 
-            VerifyCSharpDiagnostic(Code, expected);
+            VerifyCSharpDiagnostic(code, expected);
         }
 
         [TestMethod]
-        public void ThreeNestedExpressionContains2Dots_DiagnosticIsReported()
+        public void SecondNestedExpressionContains2Dots_DiagnosticIsReported()
         {
-            const string Code = @"
+            const string code = @"
            class Board {
                 public String boardRepresentation() {
                     StringBuilder buf = new StringBuilder();
@@ -122,7 +122,34 @@ namespace DaVinci.Test.ObjectCalisthenics
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 7, 36) }
             };
 
-            VerifyCSharpDiagnostic(Code, expected);
+            VerifyCSharpDiagnostic(code, expected);
+        }
+
+        [TestMethod]
+        public void ThirdNestedExpressionContains2Dots_DiagnosticIsReported()
+        {
+            const string code = @"
+           class Board {
+                public String boardRepresentation() {
+                    StringBuilder buf = new StringBuilder();
+
+                    for (Location loc : squares()) {
+                        buf.append(loc.current(point.getvalue.substring(), point.getvalue()));
+                    }
+
+                    return buf.toString();
+                }
+             }";
+
+            var expected = new DiagnosticResult
+            {
+                Id = "DaVinci.OC.5",
+                Message = "\'point.getvalue.substring()\' contains more than 1 dot per line.",
+                Severity = DiagnosticSeverity.Info,
+                Locations = new[] { new DiagnosticResultLocation("Test0.cs", 7, 48) }
+            };
+
+            VerifyCSharpDiagnostic(code, expected);
         }
     }
 }
