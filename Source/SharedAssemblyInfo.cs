@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 
 [assembly: AssemblyCompany("Johannes Schmitt")]
-[assembly: AssemblyCopyright("Copyright © Johannes Schmitt; 2015")]
+[assembly: AssemblyCopyright("Copyright © Johannes Schmitt, Toni Luchiean")]
 
 // Version information for an assembly consists of the following four values:
 //
