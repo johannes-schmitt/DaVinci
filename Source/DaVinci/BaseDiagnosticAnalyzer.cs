@@ -15,7 +15,7 @@ namespace DaVinci
         protected abstract string Category { get; }
         protected abstract DiagnosticSeverity DefaultSeverity { get; }
 
-        private Uri HelpUri => new Uri($"https://github.com/johannesschmitt/DaVinci/blob/master/Documentation/{DiagnosticId}.md");
+        private Uri HelpUri => new Uri($"https://github.com/johannes-schmitt/DaVinci/blob/master/Documentation/{DiagnosticId}.md");
 
         private DiagnosticDescriptor rule;
 

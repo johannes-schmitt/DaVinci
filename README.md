@@ -7,4 +7,4 @@ The goal of DaVinci is to help you to write better object-oriented C# code. Bett
 Because DaVinci's rule are very strict, it's recommended to use DaVinci when you exercise programming (e.g. coding dojo).
 
 ## What does it analyze? ##
-For the currently supported rules, have a look in the [documentation](https://github.com/johannesschmitt/DaVinci/tree/master/Documentation).
+For the currently supported rules, have a look in the [documentation](https://github.com/johannes-schmitt/DaVinci/tree/master/Documentation).
