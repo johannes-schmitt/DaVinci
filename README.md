@@ -1,5 +1,5 @@
 # DaVinci
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/johannes-schmitt/DaVinci?branch=master&svg=true)](https://ci.appveyor.com/project/johannesschmitt/davinci)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/johannes-schmitt/DaVinci?branch=master&svg=true)](https://ci.appveyor.com/project/johannes-schmitt/davinci)
 [![NuGet prereleases](https://img.shields.io/nuget/v/DaVinci.svg)](https://www.nuget.org/packages/DaVinci/)
 
 ## What is DaVinci? ##
