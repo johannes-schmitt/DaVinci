@@ -11,7 +11,7 @@ namespace DaVinci.ObjectCalisthenics
     {
         private const int MaximumNumberOfFields = 2;
 
-        protected override string DiagnosticId => "DaVinci.OC.8";
+        protected override string DiagnosticId => "DaVinciOC8";
         protected override LocalizableString Title => "A Class should not have more than " + MaximumNumberOfFields + " fields (Object Calisthenics Rule #8).";
         protected override LocalizableString MessageFormat => "'{0}' contains more than " + MaximumNumberOfFields + " fields ({1}).";
         protected override LocalizableString Description => "Rule #8 of Object Calisthenics is \"No classes with more than " + MaximumNumberOfFields + " instance variables\".";

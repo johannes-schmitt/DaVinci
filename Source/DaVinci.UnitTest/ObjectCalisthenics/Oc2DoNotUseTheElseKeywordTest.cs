@@ -65,7 +65,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.2",
+                Id = "DaVinciOC2",
                 Message = "The else keyword should be avoided.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 14, 21) }
@@ -102,7 +102,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.2",
+                Id = "DaVinciOC2",
                 Message = "The else keyword should be avoided.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 14, 21) }
@@ -110,7 +110,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected2 = new DiagnosticResult
             {
-                Id = "DaVinci.OC.2",
+                Id = "DaVinciOC2",
                 Message = "The else keyword should be avoided.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 18, 21) }

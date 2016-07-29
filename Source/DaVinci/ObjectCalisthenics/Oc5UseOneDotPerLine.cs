@@ -8,7 +8,7 @@ namespace DaVinci.ObjectCalisthenics
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Oc5UseOneDotPerLine : BaseDiagnosticAnalyzer
     {
-        protected override string DiagnosticId => "DaVinci.OC.5";
+        protected override string DiagnosticId => "DaVinciOC5";
         protected override LocalizableString Title => "Use one dot per line (Object Calisthenics Rule #6).";
         protected override LocalizableString MessageFormat => "'{0}' contains more than 1 dot per line.";
         protected override LocalizableString Description => "Rule #5 of Object Calisthenics is \"Use one dot per line\".";

@@ -10,7 +10,7 @@ namespace DaVinci.ObjectCalisthenics
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Oc3WrapAllPrimitivesAndStrings : BaseDiagnosticAnalyzer
     {
-        protected override string DiagnosticId => "DaVinci.OC.3";
+        protected override string DiagnosticId => "DaVinciOC3";
         protected override LocalizableString Title => "Wrap all primitives and strings (Object Calisthenics Rule #3).";
         protected override LocalizableString MessageFormat => "'{0}' should be wrapped as it's a primitive.";
         protected override LocalizableString Description => "Rule #3 of Object Calisthenics is \"Wrap all primitives and strings\".";

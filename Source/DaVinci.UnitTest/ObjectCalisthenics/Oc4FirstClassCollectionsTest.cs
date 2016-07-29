@@ -41,7 +41,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.4",
+                Id = "DaVinciOC4",
                 Message = "Consider wrapping the collection into a separate class.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 6, 62) }
@@ -69,7 +69,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.4",
+                Id = "DaVinciOC4",
                 Message = "Consider wrapping the collection into a separate class.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 6, 62) }
@@ -98,7 +98,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var firstExpected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.4",
+                Id = "DaVinciOC4",
                 Message = "Consider wrapping the collection into a separate class.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 62)}
@@ -106,7 +106,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var secondExpected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.4",
+                Id = "DaVinciOC4",
                 Message = "Consider wrapping the collection into a separate class.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 5, 62) }

@@ -33,7 +33,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.9",
+                Id = "DaVinciOC9",
                 Message = "\'SomeProperty\' is a property and should be avoided.",
                 Severity = DiagnosticSeverity.Info,
                 Locations =

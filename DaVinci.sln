@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaVinci", "Source\DaVinci\DaVinci.csproj", "{EA78A094-3C9D-4B57-B5D9-8202D359EBF7}"
 EndProject
@@ -19,13 +19,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{43695ECC-BBEC-4EEA-8BE2-8CCEF8B22D73}"
 	ProjectSection(SolutionItems) = preProject
-		Documentation\DaVinci.OC.1.md = Documentation\DaVinci.OC.1.md
-		Documentation\DaVinci.OC.2.md = Documentation\DaVinci.OC.2.md
-		Documentation\DaVinci.OC.3.md = Documentation\DaVinci.OC.3.md
-		Documentation\DaVinci.OC.4.md = Documentation\DaVinci.OC.4.md
-		Documentation\DaVinci.OC.7.md = Documentation\DaVinci.OC.7.md
-		Documentation\DaVinci.OC.8.md = Documentation\DaVinci.OC.8.md
-		Documentation\DaVinci.OC.9.md = Documentation\DaVinci.OC.9.md
+		Documentation\DaVinciOC1.md = Documentation\DaVinciOC1.md
+		Documentation\DaVinciOC2.md = Documentation\DaVinciOC2.md
+		Documentation\DaVinciOC3.md = Documentation\DaVinciOC3.md
+		Documentation\DaVinciOC4.md = Documentation\DaVinciOC4.md
+		Documentation\DaVinciOC7.md = Documentation\DaVinciOC7.md
+		Documentation\DaVinciOC8.md = Documentation\DaVinciOC8.md
+		Documentation\DaVinciOC9.md = Documentation\DaVinciOC9.md
 	EndProjectSection
 EndProject
 Global

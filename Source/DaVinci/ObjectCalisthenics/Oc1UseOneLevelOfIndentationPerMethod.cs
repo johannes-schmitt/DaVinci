@@ -12,7 +12,7 @@ namespace DaVinci.ObjectCalisthenics
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Oc1UseOneLevelOfIndentationPerMethod : BaseDiagnosticAnalyzer
     {
-        protected override string DiagnosticId => "DaVinci.OC.1";
+        protected override string DiagnosticId => "DaVinciOC1";
         protected override LocalizableString Title => "Use one level of indentation per method (Object Calisthenics Rule #1).";
         protected override LocalizableString MessageFormat => "'{0}' contains more than 1 level of indentation.";
         protected override LocalizableString Description => "Rule #1 of Object Calisthenics is \"Use one level of indentation per method\".";

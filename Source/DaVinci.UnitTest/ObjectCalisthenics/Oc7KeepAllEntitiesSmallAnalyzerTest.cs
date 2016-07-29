@@ -80,7 +80,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.7",
+                Id = "DaVinciOC7",
                 Message = "\'SomeClass\' contains more than 50 lines (51).",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 19) }
@@ -205,7 +205,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.7",
+                Id = "DaVinciOC7",
                 Message = "\'SomeStruct\' contains more than 50 lines (51).",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 2, 20) }
@@ -298,7 +298,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.7",
+                Id = "DaVinciOC7",
                 Message = "\'SomeMethod\' contains more than 15 lines (16).",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 22) }

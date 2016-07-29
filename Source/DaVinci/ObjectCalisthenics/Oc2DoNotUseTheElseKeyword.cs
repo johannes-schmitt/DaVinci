@@ -9,7 +9,7 @@ namespace DaVinci.ObjectCalisthenics
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Oc2DoNotUseTheElseKeyword : BaseDiagnosticAnalyzer
     {
-        protected override string DiagnosticId => "DaVinci.OC.2";
+        protected override string DiagnosticId => "DaVinciOC2";
         protected override LocalizableString Title => "Don’t use the else keyword (Object Calisthenics Rule #2)";
         protected override LocalizableString MessageFormat => "The else keyword should be avoided.";
         protected override LocalizableString Description => "Rule #2 of Object Calisthenics is \"Don’t use the else keyword\".";

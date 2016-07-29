@@ -48,7 +48,7 @@ namespace DaVinci.Test.ObjectCalisthenics
             {
                 var expected = new DiagnosticResult
                 {
-                    Id = "DaVinci.OC.3",
+                    Id = "DaVinciOC3",
                     Message = "'parameter' should be wrapped as it's a primitive.",
                     Severity = DiagnosticSeverity.Info,
                     Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 45 + parameterType.Length + 1) }
@@ -93,7 +93,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected1 = new DiagnosticResult
             {
-                Id = "DaVinci.OC.3",
+                Id = "DaVinciOC3",
                 Message = "'parameter1' should be wrapped as it's a primitive.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 49) }
@@ -101,7 +101,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected2 = new DiagnosticResult
             {
-                Id = "DaVinci.OC.3",
+                Id = "DaVinciOC3",
                 Message = "'parameter2' should be wrapped as it's a primitive.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 4, 66) }

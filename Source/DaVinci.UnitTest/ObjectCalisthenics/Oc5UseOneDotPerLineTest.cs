@@ -42,7 +42,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.5",
+                Id = "DaVinciOC5",
                 Message = "\'loc.current.substring(0, 1)\' contains more than 1 dot per line.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 6, 40) }
@@ -89,7 +89,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.5",
+                Id = "DaVinciOC5",
                 Message = "\'loc.current.substring(0, 1)\' contains more than 1 dot per line.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 7, 36) }
@@ -116,7 +116,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.5",
+                Id = "DaVinciOC5",
                 Message = "\'loc.current.substring(point.getvalue(), point.getvalue())\' contains more than 1 dot per line.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 7, 36) }
@@ -143,7 +143,7 @@ namespace DaVinci.Test.ObjectCalisthenics
 
             var expected = new DiagnosticResult
             {
-                Id = "DaVinci.OC.5",
+                Id = "DaVinciOC5",
                 Message = "\'point.getvalue.substring()\' contains more than 1 dot per line.",
                 Severity = DiagnosticSeverity.Info,
                 Locations = new[] { new DiagnosticResultLocation("Test0.cs", 7, 48) }

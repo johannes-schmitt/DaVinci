@@ -13,7 +13,7 @@ namespace DaVinci.ObjectCalisthenics
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Oc4FirstClassCollections : BaseDiagnosticAnalyzer
     {
-        protected override string DiagnosticId => "DaVinci.OC.4";
+        protected override string DiagnosticId => "DaVinciOC4";
         protected override LocalizableString Title => "First class collections (Object Calisthenics Rule #4)";
         protected override LocalizableString MessageFormat => "Consider wrapping the collection into a separate class.";
         protected override LocalizableString Description => "Rule #4 of Object Calisthenics is \"First class collections\".";

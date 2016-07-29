@@ -11,7 +11,7 @@ namespace DaVinci.ObjectCalisthenics
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class Oc7KeepAllEntitiesSmallAnalyzer : BaseDiagnosticAnalyzer
     {
-        protected override string DiagnosticId => "DaVinci.OC.7";
+        protected override string DiagnosticId => "DaVinciOC7";
         protected override LocalizableString Title => "Keep all entities small (Object Calisthenics Rule #7).";
         protected override LocalizableString MessageFormat => "'{0}' contains more than {2} lines ({1}).";
         protected override LocalizableString Description => "Rule #7 of Object Calisthenics is \"Keep all entities small\".";
