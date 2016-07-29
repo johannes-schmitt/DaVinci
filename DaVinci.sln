@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentat
 		Documentation\DaVinciOC2.md = Documentation\DaVinciOC2.md
 		Documentation\DaVinciOC3.md = Documentation\DaVinciOC3.md
 		Documentation\DaVinciOC4.md = Documentation\DaVinciOC4.md
+		Documentation\DaVinciOC5.md = Documentation\DaVinciOC5.md
 		Documentation\DaVinciOC7.md = Documentation\DaVinciOC7.md
 		Documentation\DaVinciOC8.md = Documentation\DaVinciOC8.md
 		Documentation\DaVinciOC9.md = Documentation\DaVinciOC9.md
