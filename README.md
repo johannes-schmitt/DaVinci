@@ -8,3 +8,6 @@ Because DaVinci's rule are very strict, it's recommended to use DaVinci when you
 
 ## What does it analyze? ##
 For the currently supported rules, have a look in the [documentation](https://github.com/johannes-schmitt/DaVinci/tree/master/Documentation).
+
+## Test
+Test test test
